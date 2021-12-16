@@ -1,0 +1,85 @@
+//  =====================================================
+//  HTML Living Standard
+//  Embedded content elements
+//  https://html.spec.whatwg.org/multipage/embedded-content.html
+//  picture, source, img, iframe, embed, object, param, video, audio, track, map, area, svg
+//  =====================================================
+
+// img {
+//   display: block;
+//   max-width: 100%;
+//   object-fit: cover;
+// }
+
+
+  
+  /* Images ((Critical: All) */
+  
+img {
+border-width: 0;
+content-visibility: auto;
+max-width: 100%;
+vertical-align: middle;
+width: 100%;
+}
+
+img[width],
+img[height] {
+max-width: none;
+}
+
+img.img-circle {
+-webkit-clip-path: circle(50% at 50% 50%);
+clip-path: circle(50% at 50% 50%);
+}
+
+img.img-hexagon {
+-webkit-clip-path: polygon(
+30% 0%,
+70% 0%,
+100% 30%,
+100% 70%,
+70% 100%,
+30% 100%,
+0% 70%,
+0% 30%
+);
+clip-path: polygon(
+30% 0%,
+70% 0%,
+100% 30%,
+100% 70%,
+70% 100%,
+30% 100%,
+0% 70%,
+0% 30%
+);
+filter: grayscale(1) opacity(0.9) contrast(1.2);
+mix-blend-mode: screen;
+transition: all var(--duration-quickly) ease;
+}
+
+.h-card:hover img.img-hexagon {
+-webkit-clip-path: polygon(
+30% 0%,
+70% 0%,
+100% 30%,
+100% 70%,
+70% 100%,
+30% 100%,
+0% 70%,
+0% 30%
+);
+clip-path: polygon(
+30% 0%,
+70% 0%,
+100% 30%,
+100% 70%,
+70% 100%,
+30% 100%,
+0% 70%,
+0% 30%
+);
+filter: grayscale(0) opacity(1) contrast(1);
+mix-blend-mode: initial;
+}

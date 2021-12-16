@@ -1,0 +1,194 @@
+//  =====================================================
+//  HTML Living Standard
+//  Grouping content elements
+//  https://html.spec.whatwg.org/multipage/grouping-content.html
+//  p, hr, pre, blockquote, ol, ul, menu, li, dl, dt, dd,
+//  figure, figcaption, main, div
+//  =====================================================
+
+/* Paragraphs (Critical: All) */
+
+// .entry-content p {
+// margin-bottom: var(--spacing-default);
+// padding: initial;
+// font-size: var(--font-size-default);
+// line-height: var(--line-height-text);
+// orphans: 3;
+// }
+
+p + p {
+margin-bottom: var(--spacing-small);
+}
+
+p + h2 {
+margin-top: var(--spacing-medium);
+}
+
+// p + p:not([class]) {
+// text-indent: 2ch;
+// }
+
+
+
+p:last-child:only-child {
+margin-bottom: 0;
+}
+
+/* Improve dark mode readability (Critical: All) */
+
+@media (prefers-color-scheme: dark) {
+  p {
+  word-spacing: 0.05em;
+  }
+}
+
+@supports not (initial-letter: 1) {
+  .dropcap::first-letter {
+  float: left;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 0;
+  font-family: inherit;
+  font-weight: var(--font-weight-bold);
+  font-size: 80px;
+  line-height: 60px;
+  color: var(--color-theme);
+  }
+}
+
+@supports (initial-letter: 2) {
+  .dropcap::first-letter {
+  initial-letter: 2;
+  }
+}
+
+@media screen and (min-width: 70em) {
+  @supports (initial-letter: 3) {
+    .dropcap::first-letter {
+    initial-letter: 3;
+    }
+  }
+}
+
+/* Rules (Critical: All) */
+
+hr {
+border: 0;
+border-bottom: var(--border-width-thin) solid var(--color-border);
+clear: both;
+display: block;
+height: 1px;
+margin: var(--spacing-default) 0;
+padding: 0;
+}
+
+hr.alt--large {
+margin: var(--spacing-large) 0;
+}
+
+hr.alt--spacer {
+margin: var(--spacing-small) 0;
+border-bottom-width: 0;
+}
+
+/* Block quotes (Critical: All) */
+
+blockquote {
+margin: var(--spacing-default) 0;
+padding: 0;
+}
+
+blockquote p,
+.columns > blockquote {
+font-size: var(--font-size-large);
+font-style: normal;
+font-weight: var(--font-weight-bold);
+line-height: 1.2;
+margin-bottom: 0;
+}
+
+blockquote p + p.secondary {
+font-size: var(--font-size-default);
+margin-top: 0;
+}
+
+blockquote cite {
+display: block;
+padding-top: var(--spacing-default);
+font-size: var(--font-size-small);
+}
+
+blockquote.alt--pull p {
+font-size: var(--font-size-medium); }
+
+@media (min-width: 60em) {
+blockquote.alt {
+position: relative; }
+
+blockquote.alt p:first-child::before {
+content: "\0201C";
+position: absolute;
+top: 0;
+left: -60px;
+font-size: 72px;
+line-height: 1; }
+
+blockquote.alt--pull {
+max-width: 60%; }
+}
+
+blockquote.theme {
+color: var(--color-theme);
+}
+
+/* Lists (Critical: All) */
+
+ol,
+ul {
+margin-top: var(--spacing-medium);
+margin-bottom: var(--spacing-medium);
+margin-left: 0;
+padding-left: 0;
+font-size: var(--font-clamp-default);
+}
+
+ul {
+list-style-type: none;
+}
+
+ol li {
+margin-bottom: var(--spacing-small);
+/* margin-left: -1rem; */
+line-height: var(--lineheight-text-default);
+}
+
+ol li:before {
+margin-right: var(--spacing-medium);
+color: var(--color-text-default);
+}
+
+ul li:before {
+content: "• ";
+color: var(--color-brand);
+}
+
+ul[class*="alt-"] li:before {
+content: "";
+display: none;
+}
+
+
+/* Figures (Critical: All) */
+
+figure {
+margin: 0 0 var(--spacing-large);
+padding: 0;
+}
+
+figure img {
+margin-bottom: var(--spacing-default);
+}
+
+figcaption {
+font-size: var(--font-size-small);
+}
