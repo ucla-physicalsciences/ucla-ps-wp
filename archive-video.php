@@ -25,13 +25,14 @@ get_header();
 
 	if ( $archive_title || $archive_subtitle ) {
 		?>
- 		<header class="archive-header has-text-align-center header-footer-group">
+ 		<header>
+     <div class="breadcrumb"><?php get_breadcrumb(); ?> / <?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></div>
 				<?php if ( $archive_title ) { ?>
-					<h1><?php echo wp_kses_post( $archive_title ); ?></h1>
+					<h1><?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></h1>
 				<?php } ?>
 
 				<?php if ( $archive_subtitle ) { ?>
-					<div class="standfirst"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></div>
+					<p class="standfirst"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></p>
 				<?php } ?>
 		</header>
 	
@@ -41,7 +42,9 @@ get_header();
 
 
 	if ( have_posts() ) {
-
+    ?>
+    <div class="c-videos">
+    <?php
 		$i = 0;
 
 		while ( have_posts() ) {
@@ -54,23 +57,12 @@ get_header();
 			get_template_part( 'template-parts/content/content-videos', get_post_type() );
 
 		}
-	} elseif ( is_search() ) {
-		?>
+	} 
+?>
 
-		<div class="no-search-results-form section-inner thin">
+    </div>
 
-			<?php
-			get_search_form(
-				array(
-					'label' => __( 'search again', 'twentytwenty' ),
-				)
-			);
-			?>
-
-		</div><!-- .no-search-results -->
-
-		<?php
-	}
+    <?php
 	?>
 
 	<?php get_template_part( 'template-parts/pagination' ); ?>

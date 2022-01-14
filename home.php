@@ -1,23 +1,31 @@
 <?php get_header(); ?>
-<main id="main">
-    <header class="header">
-        <div class="ucla campus">
-            <div class="col span_12_of_12">
-                <div class="breadcrumb"><?php get_breadcrumb(); ?></div>
-                <h1 class="entry-title"><?php single_term_title(); ?></h1>
-            </div>
-        </div>
+<main id="site-content" role="main">
+
+<?php
+
+  $page_title    = 'News';
+  $page_subtitle = '';
+
+   
+?>
+  <article>
+    <header>
+      <div class="breadcrumb"><?php get_breadcrumb(); ?> / News</div>
+      <?php if ( $page_title ) { ?>
+        <h1><?php echo wp_kses_post( $page_title ); ?></h1>
+      <?php } ?>
+       
     </header>
-    <div class="ucla campus entry-content">
+    
+    <div class="c-blog-posts">
 
-        <div class="col span_<?php echo(is_active_sidebar('primary-widget-area') ? '7' : '12') ?>_of_12">
-
+        
           <?php
           // Pagination
           $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
           // Example argument that defines three posts per page.
           $args = array(
-            'posts_per_page' => 10,
+            'posts_per_page' => 12,
             'post_status' => 'publish',
             'paged' => $paged,
             'orderby' => 'date',
@@ -29,12 +37,12 @@
 
           if ( $the_query->have_posts() ) :
             ?>
-            <div class="story__secondary">
+            <div class="h-feed">
             <?php
               // Start the Loop
               while ( $the_query->have_posts() ) : $the_query->the_post();
               // Loop Content
-              include 'template-parts/card-secondary-story.php';
+              include 'template-parts/card-story-ucla-ps.php';
               // End the Loop
               endwhile;
              ?>
@@ -48,7 +56,7 @@
           wp_reset_postdata();
           ?>
 
-          <div class="pagination mb-64">
+          <nav class="nav-links pagination u-max-width">
             <?php echo paginate_links([
               'format'  => 'page/%#%',
               'current' => $paged,
@@ -57,8 +65,8 @@
               'prev_text'       => __('&laquo;'),
               'next_text'       => __('&raquo;')
             ]); ?>
-          </div>
-        </div>
+          </nav>
+       
 
 
 

@@ -34,14 +34,12 @@ input {
 
 /* Buttons (Critical: All) */
 
-.btn,
 button {
 display: inline-block;
 margin: 0;
 padding: var(--spacing-default);
 background-color: var(--color-theme);
 border-width: 0;
-border-radius: var(--border-radius);
 color: #fff;
 cursor: pointer;
 font-size: var(--font-size-default);
@@ -54,16 +52,16 @@ transition: all var(--duration-quickly) ease;
 appearance: none;
 }
 
-.btn:hover {
-position: relative;
-top: -1px;
-color: #fff;
-text-decoration: none;
-}
-
-.btn:visited {
-color: #fff;
-} 
+// .btn:hover {
+// position: relative;
+// top: -1px;
+// color: #fff;
+// text-decoration: none;
+// }
+// 
+// .btn:visited {
+// color: #fff;
+// } 
 
 .btn-group {
 padding: var(--spacing-medium) 0;

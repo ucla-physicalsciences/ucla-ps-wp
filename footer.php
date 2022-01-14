@@ -12,43 +12,41 @@ $foot_signature = get_option('logo');
 
         <img src="<?php echo get_template_directory_uri(); ?>/images/ucla_logo_white.svg">
 
-        <div>
+        <address>
+          <?php
+          // get the footer address from theme options
+          if (myprefix_get_theme_option('address_heading') !== NULL) {
+            $address_heading = myprefix_get_theme_option('address_heading');
+            echo '<p class="p-org">'  . $address_heading . '</p>';
+          } ?>
           <?php
           // get the footer address from theme options
           if (myprefix_get_theme_option('address_input_one') !== NULL) {
             $address_one = myprefix_get_theme_option('address_input_one');
             $address_two = myprefix_get_theme_option('address_input_two');
-            echo '<p>' . $address_one . '<br/>' . $address_two . '</p>';
+            echo '<p class="p-street-address">' . $address_one . '<br/>' . $address_two . '</p>';
           } else { ?>
-            <p>
+            <p class="p-street-address">
               10889 Wilshire Blvd., Suite 1400<br>
               Los Angeles, CA 90024
             </p>
           <?php } ?>
 
-          <?php
-          if (
-            myprefix_get_theme_option('phone_input') !== NULL ||
-            myprefix_get_theme_option('email_input') !== NULL
-          ) {
-            echo '<br>';
-          }
-          ?>
 
           <?php
           // get the footer address from theme options
           if (myprefix_get_theme_option('phone_input') !== NULL) {
             $phone = myprefix_get_theme_option('phone_input');
-            echo '</br><p><a href="tel:' . str_replace(['(', ')', ' ', '-'], '', $phone) . '">' . $phone . '</a></p>';
+            echo '<p><a class="p-tel" href="tel:' . str_replace(['(', ')', ' ', '-'], '', $phone) . '">' . $phone . '</a></p>';
           } ?>
 
           <?php
           // get the footer address from theme options
           if (myprefix_get_theme_option('email_input') !== NULL) {
             $email = myprefix_get_theme_option('email_input');
-            echo '<p><a href="mailto:' . $email . '">' . $email . '</a></p>';
+            echo '<p><a class="u-email" href="mailto:' . $email . '">' . $email . '</a></p>';
           } ?>
-        </div>
+        </address>
         <div id="footer-social-menu" class="foot-upper-social social-icons">
           <nav role="navigation" aria-labelledby="block-socialmedia-menu" id="block-socialmedia" class="social-dark">
 
@@ -277,6 +275,21 @@ $foot_signature = get_option('logo');
 </div>
 
 <?php wp_footer(); ?>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '61d7595279f7ec7745a5bda4');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
 
 </body>
 

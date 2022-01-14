@@ -274,8 +274,9 @@ function ucla_ps_remove_menus(){
 
 
 
-/* Embeds tracking script for Gauges Analytics https://secure.gaug.es/ */
-  add_action('wp_footer', 'add_gauges_analytics_tracking_code');
+/* Tracking script for Gauges Analytics https://secure.gaug.es/ */
+// disabled action and pasted script code in footer.php right before closing body tag
+// add_action('wp_footer', 'add_gauges_analytics_tracking_code');
   function add_gauges_analytics_tracking_code(){
   ?>
   <script type="text/javascript">
@@ -285,7 +286,7 @@ function ucla_ps_remove_menus(){
     t.type  = 'text/javascript';
     t.async = true;
     t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '591203d1bad3a7072a010485');
+    t.setAttribute('data-site-id', '61d7595279f7ec7745a5bda4');
     t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
     t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
     var s = document.getElementsByTagName('script')[0];

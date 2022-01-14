@@ -11,7 +11,7 @@
 
 ?>
 
-<article <?php post_class('ucla-ps-c-videos'); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('c-video'); ?> id="post-<?php the_ID(); ?>">
     
 <?php if( get_field('ucla_ps_video_url') ):?>
   <?php the_field('ucla_ps_video_url'); ?>
@@ -22,9 +22,7 @@
     //get_template_part( 'template-parts/featured-image' );
     get_template_part( 'template-parts/entry-header' );
     ?>	
-    <?php if( get_field('ucla_ps_video_summary') ):?>
-      <p class="lede"><?php the_field('ucla_ps_video_summary'); ?></p>
-    <?php endif; ?>  
+    
 
 
 		</div><!-- .entry-content -->

@@ -57,11 +57,11 @@ if( have_rows('c-content-blocks') ):
         <figure>
           <a href="<?php the_permalink(); ?>" rel="bookmark">
             <?php setup_postdata($post); ?>
-            <?php the_post_thumbnail( 'medium', ['class' => 'OFFstory__featured-image c-post-img'] ); ?>
+            <?php the_post_thumbnail( 'medium', ['class' => 'u-photo c-post-img'] ); ?>
           </a>
         </figure>
         <div>
-          <h3 class="p-name"><a class="link" href="<?php the_permalink(); ?>"
+          <h3 class="p-name"><a class="link u-url" href="<?php the_permalink(); ?>"
               rel="bookmark"><?php the_title(); ?></a></h3>
           <p class="p-summary"><?= wp_strip_all_tags( get_the_excerpt(), true ) ?></p>
           <time class="dt-published"
@@ -129,7 +129,7 @@ if( have_rows('c-content-blocks') ):
 
   if( get_row_layout() == 'c-section-block' ):
     
-    echo 	'<div class="c-section">';
+    echo 	'<section class="c-section-block">';
     
   
     $c_section_block_heading = esc_html(get_sub_field('c-section-block-heading'));
@@ -141,7 +141,7 @@ if( have_rows('c-content-blocks') ):
   
 
     if( !empty ($c_section_block_heading)):
-      echo '<h2 class="c-title-name">'. $c_section_block_heading .'</h2>';
+      echo '<p class="h4 c-section-block-heading">'. $c_section_block_heading .'</p>';
     endif;  
 
     if (!empty ($c_section_block_image) ): 
@@ -153,7 +153,7 @@ if( have_rows('c-content-blocks') ):
       
   
   if( !empty ($c_section_block_title)):
-    echo '<h3>'. $c_section_block_title .'</h3>';
+    echo '<h2>'. $c_section_block_title .'</h2>';
   endif;  
   if( !empty ($c_section_block_desc)):
     echo '<div class="c-section-desc">';
@@ -169,16 +169,14 @@ if( have_rows('c-content-blocks') ):
       $c_section_block_link_title = get_sub_field('c-section-block-link-title');
       $c_section_block_link_url = get_sub_field('c-section-block-link-url'); 
     if ($c_section_block_links): ?>
-  <li><button><a
-      href="<?php echo esc_url($c_section_block_link_url); ?>"><?php echo $c_section_block_link_title; ?></button></a>
-  </li>
+    <li><a class="btn btn--lightbg" href="<?php echo esc_url($c_section_block_link_url); ?>"><?php echo $c_section_block_link_title; ?></a></li>
   <?php endif;
 
   endwhile; 
   echo "</ul>";	
 endif; // links repeater ends here 
 
-echo '</div>';
+echo '</section>';
 endif; 
 
 // ==============================================================
