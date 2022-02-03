@@ -8,7 +8,6 @@
 @import "./utilities/mixins/_breakpoints";
 @import "./utilities/mixins/_mixins";
 @import "./utilities/_spacing";
-@import "./scss/vendor/hamburgers/_sass/hamburgers/hamburgers.scss";
 @import "./common/_common";
 
 // WordPress Gutenberg Core Overrides
@@ -27,12 +26,12 @@
 @import "./components/_entry-content";
 @import "./components/_footer";
 @import "./components/_front-page-one-header";
-@import "./components/_hamburger";
+//@import "./components/_hamburger";
 @import "./components/_header";
 @import "./components/_page-header";
 @import "./components/_pagination";
-@import "./components/_primary-nav";
-@import "./components/_search";
+//@import "./components/_primary-nav";
+//@import "./components/_search";
 @import "./components/_sidebar";
 @import "./components/_side-menu";
 @import "./components/_skip-nav";

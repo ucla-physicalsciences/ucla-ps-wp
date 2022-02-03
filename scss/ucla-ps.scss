@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
+@import "base/00-variables";
+
 // BASE STYLES
 @import "base/00-custom-properties";
-// @import "base/01-sections";
+@import "base/01-sections";
 //@import "base/02-headings";
 @import "base/03-grouping";
 // @import "base/04-text-level";
@@ -15,15 +17,19 @@
 @import "components/acf-blocks";
 @import "components/cards";
 @import "components/featured-stories";
+@import "components/hamburger";
 @import "components/pagination";
 @import "components/people";
 @import "components/posts";
+@import "components/primary-nav";
+@import "components/search";
 
 // LAYOUTS
 @import "layouts/grids";
 // @import "layouts/print";
 
 // UTILITIES
-@import "utilities/debug";
-//@import "utilities/utilities";
 @import "utilities/a11y";
+@import "utilities/debug";
+@import "utilities/typography";
+//@import "utilities/utilities";

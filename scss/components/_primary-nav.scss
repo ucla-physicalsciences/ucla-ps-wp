@@ -36,24 +36,27 @@ nav#menu {
   overflow-x: hidden;
   border: 1px solid $medium-grey3;
   top: -7px;
+  
 
   &::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
   }
 
-  @media (min-width: breakpoint-min(md)) {
+  @media (min-width: $mq-md) {
     width: 320px !important;
     top: 8px;
     position: absolute !important;
     right: -24px;
   }
 
-  @media only screen and (max-width: 1224px) and (min-width: 1024px) {
+  @media only screen and (max-width: $mq-xl) and (min-width: $mq-lg) {
     margin-right: 30px !important;
   }
 
-  @media (min-width: breakpoint-min(lg)) {
+  @media (min-width: $mq-lg) {
     display: block;
     position: absolute;
     opacity: 1;
@@ -74,13 +77,13 @@ nav#menu {
     opacity: 1;
     z-index: 10;
 
-    @media (min-width: breakpoint-min(md)) {
+    @media (min-width: $mq-md) {
       right: -24px;
     }
   }
 
   div[class^="menu"] {
-    @media (min-width: breakpoint-min(lg)) {
+    @media (min-width: $mq-lg) {
       display: inline-block;
     }
 
@@ -93,7 +96,7 @@ nav#menu {
       margin-block-start: 0;
       margin-block-end: 0;
 
-      @media (min-width: breakpoint-min(lg)) {
+      @media (min-width: $mq-lg) {
         width: auto;
         position: relative;
         display: inline-block;
@@ -105,16 +108,17 @@ nav#menu {
         &:last-of-type {
           padding-bottom: 50px;
 
-          @media (min-width: breakpoint-min(lg)) {
+          @media (min-width: $mq-lg) {
             padding-bottom: 0;
           }
         }
 
         &.current-menu-item {
+
           // This is the yellow bar under top level active item link
           &:hover {
             a.current-page {
-              @media (min-width: breakpoint-min(lg)) {
+              @media (min-width: $mq-lg) {
                 &::after {
                   display: none;
                 }
@@ -122,7 +126,7 @@ nav#menu {
             }
 
             button.current-page {
-              @media (min-width: breakpoint-min(lg)) {
+              @media (min-width: $mq-lg) {
                 &::after {
                   display: none;
                 }
@@ -131,7 +135,7 @@ nav#menu {
           }
 
           a.current-page {
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               &::after {
                 display: block;
                 position: relative;
@@ -147,7 +151,7 @@ nav#menu {
           }
 
           button.current-page {
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               &::after {
                 display: block;
                 position: relative;
@@ -162,10 +166,12 @@ nav#menu {
               }
             }
           }
+
           // Yellow bar end
         }
+
         // START LARGE BREAKPOINT FOR TOP LEVEL LIST ITEM
-        @media (min-width: breakpoint-min(lg)) {
+        @media (min-width: $mq-lg) {
           height: 38px;
           float: left;
           position: relative;
@@ -227,6 +233,7 @@ nav#menu {
               }
             }
           }
+
           // END LARGE MENU HOVER STATES
 
           &:last-of-type {
@@ -235,6 +242,7 @@ nav#menu {
             }
           }
         }
+
         // END LARGE BREAKPOINT
 
         &:last-of-type {
@@ -248,7 +256,7 @@ nav#menu {
           font-weight: bold;
           font-size: 16px;
           display: inline-block;
-          width: calc(100% - 25px);
+          width: calc(100% - 18px);
           border-top: 1px solid $medium-grey3;
           color: $default-state;
 
@@ -257,7 +265,7 @@ nav#menu {
             color: $white;
           }
 
-          @media (min-width: breakpoint-min(lg)) {
+          @media (min-width: $mq-lg) {
             border-top: 0;
             padding: 9px 9px;
           }
@@ -265,7 +273,7 @@ nav#menu {
           &.current-page {
             border-left: 4px solid $ucla-gold;
 
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               border-left: 0;
             }
 
@@ -280,7 +288,7 @@ nav#menu {
           }
 
           &.menu-item-has-children--link {
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               margin-right: 32px;
               padding: 9px;
 
@@ -306,7 +314,7 @@ nav#menu {
             border-right: 0;
             z-index: 5;
 
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               background: rgba(0, 0, 0, 0);
               width: auto;
               height: 33px;
@@ -347,7 +355,7 @@ nav#menu {
         ul {
           display: none;
 
-          @media (min-width: breakpoint-min(lg)) {
+          @media (min-width: $mq-lg) {
             top: 38px;
           }
 
@@ -355,7 +363,7 @@ nav#menu {
             display: block;
             position: inherit;
 
-            @media (min-width: breakpoint-min(lg)) {
+            @media (min-width: $mq-lg) {
               display: block;
               position: absolute;
               left: 0;
@@ -373,7 +381,7 @@ nav#menu {
               a {
                 border-bottom: 0;
 
-                @media (min-width: breakpoint-min(lg)) {
+                @media (min-width: $mq-lg) {
                   border-bottom: 1px solid $medium-grey3 !important;
                 }
               }
@@ -391,14 +399,14 @@ nav#menu {
               border-right: 1px solid $medium-grey3;
               background: $lightest-grey-2;
 
-              @media (min-width: breakpoint-min(lg)) {
+              @media (min-width: $mq-lg) {
                 padding: 14px 24px 14px 24px;
                 background: $white;
                 width: calc(320px - 48px);
               }
 
               &.is-active {
-                @media (min-width: breakpoint-min(lg)) {
+                @media (min-width: $mq-lg) {
                   border-left: 4px solid $ucla-gold;
                   width: calc(320px - 51px);
 
@@ -416,7 +424,7 @@ nav#menu {
               &.current-page {
                 border-left: 4px solid $ucla-gold !important;
 
-                @media (min-width: breakpoint-min(lg)) {
+                @media (min-width: $mq-lg) {
                   width: calc(320px - 47px);
                   padding: 14px 24px 14px 20px;
 
@@ -454,7 +462,7 @@ html.safari {
 /************************
 Firefox Only styles
 ************************/
-@media (min-width: breakpoint-min(lg)) {
+@media (min-width: $mq-lg) {
   html.firefox body #menu {
     div[class^="menu"] {
       ul li .has-child--button {
@@ -463,7 +471,7 @@ Firefox Only styles
         top: 1.5px;
 
         &.current-page::after {
-          @media (min-width: breakpoint-min(lg)) {
+          @media (min-width: $mq-lg) {
             top: -2px;
             left: -8px;
           }
@@ -474,7 +482,7 @@ Firefox Only styles
     .search-desktop {
       top: -12px;
 
-      @media (min-width: breakpoint-min(lg)) {
+      @media (min-width: $mq-lg) {
         top: -18px;
       }
     }
@@ -484,7 +492,7 @@ Firefox Only styles
 /************************
 IE 11 Only styles
 ************************/
-@media (min-width: breakpoint-min(lg)) {
+@media (min-width: $mq-lg) {
   html.msie body #menu {
     width: auto;
     top: 20px;

@@ -41,7 +41,7 @@
   margin: var(--spacing-large) var(--spacing-default);
 }
 
-@media (min-width: 48em) {
+@media (min-width: $mq-md) {
 .c-videos {
   display: grid;
   gap: var(--gap);

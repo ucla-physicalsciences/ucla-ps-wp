@@ -9,8 +9,10 @@ main > article {
   margin: var(--spacing-large) auto;
 }
 
-
-/* Component Grids */
+main > article > header {
+  max-width: var(--max-width);
+  margin: var(--spacing-large) auto;
+}
 
 
 [class*="grid"],
@@ -24,7 +26,7 @@ margin-bottom: var(--spacing-large);
   margin: var(--spacing-large) auto;
 }
 
-@media (min-width: 60em) {
+@media (min-width: 64em) {
   [class*="grid"] {
   display: grid;
   grid-column-gap: var(--grid-column-gap);
@@ -41,6 +43,9 @@ margin-bottom: var(--spacing-large);
   }
 }
 
+.ucla-ps-columns {
+  column-width: 18em;
+}
 
 
 

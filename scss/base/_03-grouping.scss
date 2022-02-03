@@ -6,8 +6,6 @@
 //  figure, figcaption, main, div
 //  =====================================================
 
-/* Paragraphs (Critical: All) */
-
 p + p {
   margin-bottom: var(--spacing-small);
 }
@@ -33,34 +31,6 @@ p:last-child:only-child {
     word-spacing: 0.05em;
   }
 }
-
-// @supports not (initial-letter: 1) {
-//   .dropcap::first-letter {
-//     float: left;
-//     padding-top: 4px;
-//     padding-right: 8px;
-//     padding-left: 0;
-//     font-family: inherit;
-//     font-weight: var(--font-weight-bold);
-//     font-size: 80px;
-//     line-height: 60px;
-//     color: var(--color-theme);
-//   }
-// }
-// 
-// @supports (initial-letter: 2) {
-//   .dropcap::first-letter {
-//     initial-letter: 2;
-//   }
-// }
-// 
-// @media screen and (min-width: 70em) {
-//   @supports (initial-letter: 3) {
-//     .dropcap::first-letter {
-//       initial-letter: 3;
-//     }
-//   }
-// }
 
 /* Rules (Critical: All) */
 
@@ -90,8 +60,7 @@ blockquote {
   padding: 0;
 }
 
-blockquote p,
-.columns > blockquote {
+blockquote p {
   font-size: var(--font-size-large);
   font-style: normal;
   font-weight: var(--font-weight-bold);
@@ -110,32 +79,6 @@ blockquote cite {
   font-size: var(--font-size-small);
 }
 
-blockquote.alt--pull p {
-  font-size: var(--font-size-medium);
-}
-
-@media (min-width: 60em) {
-  blockquote.alt {
-    position: relative;
-  }
-
-  blockquote.alt p:first-child::before {
-    content: "\0201C";
-    position: absolute;
-    top: 0;
-    left: -60px;
-    font-size: 72px;
-    line-height: 1;
-  }
-
-  blockquote.alt--pull {
-    max-width: 60%;
-  }
-}
-
-blockquote.theme {
-  color: var(--color-theme);
-}
 
 /* Lists (Critical: All) */
 

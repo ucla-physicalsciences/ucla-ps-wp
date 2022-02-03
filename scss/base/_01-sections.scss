@@ -5,43 +5,17 @@
 //  body, article, section, nav, aside, hgroup, header, footer, address
 //  ======================================================
 
-/* HTML/body ((Critical: All) */
+// body {
+//   // margin: 0;
+//   // padding: 0;
+//   // min-height: 100vh;
+//   // background-color: var(--color-background);
+//   // color: var(--color-text-default);
+//   // font-family: var(--font-family-default);
+//   // font-weight: var(--font-weight-default);
+//   // line-height: var(--line-height-text);
+// }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  font-size: 1em;
-}
-
-@media screen and (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-body {
-  margin: 0;
-  padding: 5px;
-  min-height: 100vh;
-  background-color: var(--color-background);
-  color: var(--color-text-default);
-  font-family: var(--font-family-default);
-  font-feature-settings: liga 1;
-  font-weight: var(--font-weight-default);
-  line-height: var(--line-height-text);
-}
-
-@supports (font-variant-ligatures: common-ligatures) {
-  body {
-    font-feature-settings: normal;
-    font-variant-ligatures: common-ligatures;
-  }
-}
-
-.color-theme {
-  fill: var(--color-theme);
-}
 
 /* Article (Critical: All) */
 article {
@@ -50,44 +24,10 @@ article {
 
 /* header */
 
-header.alt svg {
-  margin-bottom: var(--spacing-medium);
-}
 
-header.alt .tagline {
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-large);
-  line-height: var(--line-height-heading);
-}
-
-header.alt article a {
-  display: block;
-}
-
-@media (min-width: 60em) {
-  header.alt {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
-
-  header.alt svg {
-    grid-column: 1 / -1;
-  }
-
-  header.alt article {
-    grid-column: 1 / -1;
-    margin-top: var(--spacing-medium);
-  }
-}
-
-.foot-upper_address p {
-  font-size: initial !important;
-  line-height: initial !important;
-  padding-bottom: initial !important;
-}
 address p {
   margin: 0;
+  padding-bottom: 0;
 }
 
 address .p-org {

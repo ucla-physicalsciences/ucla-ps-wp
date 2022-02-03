@@ -1,10 +1,14 @@
 /* Cards  ((Critical: All) */
 
+.c-school-cards .lede {
+  max-width: 75ch;
+}
+
 .c-school-card {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: var(--grid-column-gap);
-  margin-bottom: var(--spacing-large);
+  margin: var(--spacing-large) 0;
   align-items: start;
 }
 
@@ -28,7 +32,7 @@
 margin-bottom: var(--spacing-large);
 }
 
-@media (min-width: 60em) {
+@media (min-width: $mq-lg) {
   [class*="ucla-ps-cards"] {
   display: grid;
   grid-column-gap: var(--grid-column-gap);

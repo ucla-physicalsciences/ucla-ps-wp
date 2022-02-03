@@ -30,7 +30,7 @@
   margin-bottom: var(--spacing-medium);
 }
 
-@media (min-width: 48em) {
+@media (min-width: $mq-md) {
   [data-layout*="c-gateway"] {
     display: grid;
     gap: var(--grid-column-gap);
@@ -67,7 +67,7 @@
 
 }
 
-@media (min-width: 60em) {
+@media (min-width: $mq-lg) {
   [data-layout*="c-gateway"] {
     display: grid;
     gap: var(--gap);
@@ -215,7 +215,7 @@
       }
   }
 
-@media (min-width: 60em) {
+@media (min-width: $mq-lg) {
   [data-layout*="c-newsroom"] {
     display: grid;
     gap: var(--gap);
