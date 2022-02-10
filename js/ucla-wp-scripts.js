@@ -76,7 +76,7 @@ $(document).ready(function () {
       negOffset = (((w - bodyW) / 2) - 5) * -1,
       contentH =$('.expander').height();
 
-    //Add the width off the windo wrap to the expander div that was added
+    //Add the width off the window wrap to the expander div that was added
     $('.expander--grey-40, .expander--lightest-grey-2, .expander--light-grey, .expander--ucla-blue, .expander--white, .wp-block-separator.fluid').css({
       'width': w,
       'margin-left': negOffset
@@ -204,8 +204,9 @@ $(document).ready(function (){
     $('#block-search').append(searchForm);
 
     $('#entity-wrap').append(secondNav);
-
-    $('a.current-page').next('.has-child--button').addClass('current-page');
+    
+    // why is this used? it adds current-page class to button causing duplicate styling
+    //$('a.current-page').next('.has-child--button').addClass('current-page');
 
     $(document).keyup(function (e) {
       if (e.key === 'Escape') { // escape key maps to keycode `27`
