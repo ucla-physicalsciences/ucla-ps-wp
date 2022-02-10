@@ -36,13 +36,10 @@ nav#menu {
   overflow-x: hidden;
   border: 1px solid $medium-grey3;
   top: -7px;
-  
 
   &::-webkit-scrollbar {
-    width: 0px;
-    /* Remove scrollbar space */
-    background: transparent;
-    /* Optional: just make scrollbar invisible */
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
   }
 
   @media (min-width: $mq-md) {
@@ -114,7 +111,6 @@ nav#menu {
         }
 
         &.current-menu-item {
-
           // This is the yellow bar under top level active item link
           &:hover {
             a.current-page {
@@ -166,10 +162,8 @@ nav#menu {
               }
             }
           }
-
           // Yellow bar end
         }
-
         // START LARGE BREAKPOINT FOR TOP LEVEL LIST ITEM
         @media (min-width: $mq-lg) {
           height: 38px;
@@ -233,7 +227,6 @@ nav#menu {
               }
             }
           }
-
           // END LARGE MENU HOVER STATES
 
           &:last-of-type {
@@ -242,7 +235,6 @@ nav#menu {
             }
           }
         }
-
         // END LARGE BREAKPOINT
 
         &:last-of-type {
