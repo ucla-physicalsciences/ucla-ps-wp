@@ -23,7 +23,11 @@ function watchStyles (done) {
 }
 
 function generateStyles () {
-  return src('scss/**/*.scss')
+  return src([
+    'scss/**/*.scss',
+    '!scss/vendor/ucla-bruin-components/**',
+    '!scss/vendor/ucla-wp/**'
+    ])
     .pipe(sourcemaps.init())
     .pipe(sass.sync({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(concat('ucla-ps.css'))
@@ -32,7 +36,11 @@ function generateStyles () {
 }
 
 function compressStyles () {
-  return src('scss/**/*.scss')
+  return src([
+      'scss/**/*.scss',
+      '!scss/vendor/ucla-bruin-components/**',
+      '!scss/vendor/ucla-wp/**'
+      ])
     .pipe(sourcemaps.init())
     .pipe(sass.sync({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(concat('ucla-ps.min.css'))
