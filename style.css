@@ -1,7 +1,7 @@
 /*
 Theme Name: UCLA Physical Sciences WP
 Theme URI: https://github.com/ucla-ps-it/physicalsciences.ucla.edu
-Author: Scott Gruber, Cody Ashe-McNalley, Yasmine Talby, Henry Zapata
+Author: Scott Gruber
 Author URI: https://github.com/ucla-ps-it
 Description: The UCLA Division of Physical Sciences Theme includes custom post types for Articles, Events, People, Projects, Publications and Videos. Advanced custom fields are used for robust content management and editing experience. UCLA branding  integrated through the UCLA Web Component Library.
 Version: 1.0.0
@@ -9,5 +9,5 @@ License: Apache license 2.0
 Requires at least: 5.8
 Requires PHP: 7.4
 Tags: education, accessibility-ready, featured-images, block-styles, grid-layout, custom-menu, microformats
-Text Domain: ucla-physsci
+Text Domain: ucla-ps-wp
 */
