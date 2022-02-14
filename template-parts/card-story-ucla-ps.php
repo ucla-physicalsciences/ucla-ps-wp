@@ -1,9 +1,9 @@
-<article class="h-entry" id="post-<?php the_ID(); ?>">
+<article class="h-entry post-<?php the_ID(); ?>" id="post-<?php the_ID(); ?>">
   <?php // Entry Meta ?>
   <figure>
     <a href="<?php the_permalink(); ?>" rel="bookmark">
       <?php setup_postdata($post); ?>
-      <?php the_post_thumbnail( 'medium', ['class' => 'u-photo c-post-img'] ); ?>
+      <?php the_post_thumbnail( 'medium', ['class' => 'u-photo'] ); ?>
     </a>
   </figure> 
 <div>

@@ -99,7 +99,7 @@ if( $posts ) {
     foreach( $posts as $post ) {
 		?>
 		<article <?php post_class("vevent"); ?> id="post-<?php the_ID(); ?>">
-		<figure class="ucla-ps-c-masthead-content-img">
+		<figure class="c-hero-image">
 <?php the_post_thumbnail( 'medium', ['class' => 'img-responsive'] ); ?>
 <?php $caption = get_the_post_thumbnail_caption() ?>
 <?php if ( $caption ): ?>

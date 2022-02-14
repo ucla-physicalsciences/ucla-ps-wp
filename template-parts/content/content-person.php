@@ -13,7 +13,7 @@
 
 <article <?php post_class('ucla-ps-c-people'); ?> id="post-<?php the_ID(); ?>">
 <?php if ( has_post_thumbnail() ) : ?>
-<figure class="ucla-ps-c-masthead-content-img">
+<figure class="c-person-image">
 <?php the_post_thumbnail( 'square_thumb', ['class' => 'u-photo avatar'] ); ?>
 <?php $caption = get_the_post_thumbnail_caption() ?>
 <?php if ( $caption ): ?>
