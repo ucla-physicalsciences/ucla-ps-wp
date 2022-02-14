@@ -1,19 +1,54 @@
 /* Cards  ((Critical: All) */
 
 
-.school-card__section {
-  background-color: $grey-10;
-}
-
 .c-school-card-stack {
   width: 100%;
-  background-color: $white;
+  background-color: $grey-10;
+  padding: var(--spacing-medium) 0;
+  margin-bottom: var(--spacing-large);
 }
 
 .c-schoool-cards-intro {
   max-width: var(--max-width);
   margin: auto;
 }
+
+.c-school-card-stack > article:first-of-type {
+  
+}
+
+.c-school-card-stack > article {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--grid-column-gap);
+  align-items: start;
+  margin: var(--spacing-large) auto;
+  max-width: var(--max-width);
+  background-color: $white;
+  padding: var(--spacing-default);
+}
+
+.c-school-cards .lede {
+  max-width: 75ch;
+}
+
+.c-school-card-image {
+  margin-top: -2em;
+  align-items: start;
+}
+
+.c-school-cards > h2+p {
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-text);
+}
+
+.c-school-card-image img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 400px;
+}
+
+
 
 @media (min-width: 768px) and (max-width: 1023.98px) {
   .school-card__section {
@@ -154,55 +189,6 @@
   }
 }
 
-.c-school-cards .lede {
-  max-width: 75ch;
-}
-
-.c-school-card {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: var(--grid-column-gap);
-  margin: var(--spacing-large) 0;
-  align-items: start;
-  background-color: $grey-10;
-}
-
-.c-school-card-image {
-  align-items: start;
-}
-
-.c-school-cards > h2+p {
-  font-size: var(--font-size-medium);
-  line-height: var(--line-height-text);
-}
-
-.c-school-card-image img {
-  object-fit: cover;
-  width: 100%;
-  max-height: 400px;
-}
-
-[class*="ucla-ps-cards"],
-[class*="ucla-ps-cards"] > * {
-margin-bottom: var(--spacing-large);
-}
-
-@media (min-width: $mq-lg) {
-  [class*="ucla-ps-cards"] {
-  display: grid;
-  grid-column-gap: var(--grid-column-gap);
-  grid-row-gap: var(--grid-row-gap);
-  grid-template-columns: var(--grid-4-5);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
-  }
-
-  [class*="grid"] > * {
-  margin-bottom: 0;
-  }
-}
 
 .story__secondary {
   display: grid;
