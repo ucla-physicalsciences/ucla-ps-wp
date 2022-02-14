@@ -6,7 +6,7 @@
  */
 ?>
 
-<figure class="ucla-ps-c-masthead-content-img">
+<figure class="c-hero-image">
 <?php the_post_thumbnail( 'large', ['class' => 'img-responsive'] ); ?>
 <?php $caption = get_the_post_thumbnail_caption() ?>
 <?php if ( $caption ): ?>
