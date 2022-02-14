@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main id="site-content" role="main">
+<main id="main" role="main">
 
 <?php
 
@@ -8,7 +8,6 @@
 
    
 ?>
-  <article>
     <header>
       <div class="breadcrumb"><?php get_breadcrumb(); ?> / News</div>
       <?php if ( $page_title ) { ?>
@@ -17,7 +16,7 @@
        
     </header>
     
-    <div class="c-blog-posts">
+    <div class="c-blog-posts h-feed">
 
         
           <?php
@@ -37,7 +36,7 @@
 
           if ( $the_query->have_posts() ) :
             ?>
-            <div class="h-feed">
+          
             <?php
               // Start the Loop
               while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -46,7 +45,7 @@
               // End the Loop
               endwhile;
              ?>
-             </div>
+
              <?php 
           else:
               // If no posts match this query, output this text.
@@ -67,16 +66,6 @@
             ]); ?>
           </nav>
        
-
-
-
-        <?php if (is_active_sidebar('primary-widget-area')) : ?>
-
-            <div class="col span_2_of_12"></div>
-            <div class="col span_3_of_12">
-                <?php dynamic_sidebar('primary-widget-area'); ?>
-            </div>
-        <?php endif; ?>
 
     </div>
 
