@@ -1,5 +1,159 @@
 /* Cards  ((Critical: All) */
 
+
+.school-card__section {
+  background-color: $grey-10;
+}
+
+.c-school-card-stack {
+  width: 100%;
+  background-color: $white;
+}
+
+.c-schoool-cards-intro {
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .school-card__section {
+    padding: 16px 36px 40px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+}
+
+.school-card__ribbon {
+  background: white;
+  top: -16px;
+}
+
+@media (max-width: 1023.98px) {
+  .school-card__ribbon {
+    padding: 0px 16px 12px 16px;
+  }
+}
+
+@media (max-width: 1023.98px) {
+  .school-card__ribbon div {
+    width: 100%;
+  }
+}
+
+.school-card__ribbon > a {
+  text-decoration: none;
+}
+
+.school-card__ribbon > a:hover div img {
+  opacity: 30%;
+}
+
+.school-card__ribbon > a:hover .school-card__img {
+  background-color: #0079BF;
+}
+
+.school-card__ribbon > a:hover h2 {
+  background-color: #0079BF;
+  color: white;
+}
+
+.school-card__ribbon > a:active div img {
+  opacity: 30%;
+}
+
+.school-card__ribbon > a:active .school-card__img {
+  background-color: #003B5C;
+}
+
+.school-card__ribbon > a:active h2 {
+  color: white;
+  background-color: #003B5C;
+}
+
+.school-card__ribbon > a:focus {
+  outline: none;
+}
+
+.school-card__ribbon > a:focus h2 {
+  outline: 1px dotted #0079BF;
+}
+
+.school-card__school,
+.school-card__degree {
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.school-card__school {
+  color: black;
+}
+
+.school-card__degree {
+  color: #666;
+}
+
+.school-card__title {
+  display: grid;
+}
+
+.school-card__title h2 {
+  color: #00598C;
+  width: fit-content;
+}
+
+// @media (max-width: 767.98px) {
+//   .school-card__title h2 {
+//     font-size: 28px;
+//     line-height: 32px;
+//   }
+// }
+
+// .ribbon--yellow {
+//   width: 23.8%;
+//   right: -22px;
+// }
+// 
+// @media (min-width: 1024px) and (max-width: 1279.98px) {
+//   .ribbon--yellow {
+//     right: 12px;
+//   }
+// }
+
+.ribbon--yellow  {
+  padding: var(--spacing-small);
+  width: fit-content;
+  background: $ucla-gold;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-bold);
+  // margin-bottom: 4px;
+  // margin-right: 12px;
+  // float: right;
+  // font-size: 1.25rem;
+  // line-height: 1.25rem;
+  // text-align: right;
+  // text-transform: none;
+  // display: inline-block;
+  // padding: 12px 9px 8px;
+  // margin-left: -21px;
+  // color: #333;
+  // background: #FFD100;
+}
+
+@media (max-width: 1023.98px) {
+  .ribbon--yellow {
+    //top: 0px;
+    //position: relative;
+    text-align: left;
+    //width: 100%;
+  }
+
+  .ribbon--yellow span {
+    //float: none;
+  }
+}
+
 .c-school-cards .lede {
   max-width: 75ch;
 }
@@ -10,6 +164,7 @@
   gap: var(--grid-column-gap);
   margin: var(--spacing-large) 0;
   align-items: start;
+  background-color: $grey-10;
 }
 
 .c-school-card-image {
