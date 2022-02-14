@@ -12,7 +12,7 @@ get_header();
 /* Start the Loop */
 while ( have_posts() ) :
 	the_post();
-	get_template_part( 'template-parts/acf-blocks-ucla-wc' );
+	get_template_part( 'template-parts/acf-blocks' );
 	get_template_part( 'template-parts/content/content-front-page' );
 
 ?>
