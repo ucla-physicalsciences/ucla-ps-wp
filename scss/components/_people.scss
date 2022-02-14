@@ -3,8 +3,8 @@
 
 .c-people > .h-feed {
   display: grid;
-  grid-column-gap: var(--grid-column-gap);
-  grid-row-gap: var(--grid-row-gap);
+  column-gap: var(--grid-column-gap);
+  row-gap: var(--grid-row-gap);
   grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
 }
 
