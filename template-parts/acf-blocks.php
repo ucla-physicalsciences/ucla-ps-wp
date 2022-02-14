@@ -30,7 +30,7 @@
 if( have_rows('c-content-blocks') ):
   ?>
 
-<div class="acf-components-wrapper">
+<div class="acf-blocks-container">
   <?php
 
 	 // loop through the rows of data
@@ -263,16 +263,21 @@ wp_reset_query();
     if( have_rows('c-school-card-list') ): // check if the nested repeater field has rows of data
       
   ?>
-   <div class="c-school-cards">
+
     <?php
-if( !empty( $c_school_cards_heading ) ): ?>
-    <h2 class="c-title-name"><?php echo $c_school_cards_heading; ?></h2>
+    if( !empty( $c_school_cards_heading ) ): ?>
+    <div class="c-schoool-cards-intro">
+    <h2><?php echo $c_school_cards_heading; ?></h2>
+    </div>
     <?php endif; ?>
     <?php if( !empty( $c_school_cards_summary ) ): ?>
+    <div class="c-schoool-cards-intro">
     <?php echo $c_school_cards_summary; ?>
+    </div>
     <?php endif; ?>
+    
 
-    <div class="c-school-card-stack">
+    <div class="school-card__section c-school-card-stack">
     <?php
     while (have_rows('c-school-card-list')): the_row();
       // vars
@@ -310,7 +315,7 @@ if( !empty( $c_school_cards_heading ) ): ?>
         <p class="c-school-card__summary"><?php echo $c_school_card_summary; ?></p>
       <?php endif; ?>
       <?php if ( !empty ($c_school_card_ribbon) ):		?>
-        <p class="c-school-card__ribbon"><?php echo $c_school_card_ribbon; ?></p>
+        <p class="school-card__ribbon ribbon--yellow c-school-card__ribbon"><span><?php echo $c_school_card_ribbon; ?></span></p>
       <?php endif; ?>
 
       <?php if( !empty ($c_school_card_desc)):		?>
@@ -323,9 +328,8 @@ if( !empty( $c_school_cards_heading ) ): ?>
     <?php endif; ?>
     <?php endwhile; ?>
     </div>
-    
-  </div>
   <?php endif; ?>
+
   <?php endif; 
 // ==============================================================
 // 04. END SCHOOL CARD BLOCK
@@ -966,17 +970,12 @@ wp_reset_query();
   <?php endwhile;
 // CLOSE LOOP OF FLEXIBLE CONTENT
 ?>
-
-
+</div>
   <?php 
-
 else :
 	echo '';
   ?>
 
-</div>
-
 <?php
-endif; // END OF ACF BLOCKS 
-// THE MAGIC ENDS.
+endif; // END OF ACF MAGIC.
 ?>
