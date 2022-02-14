@@ -15,7 +15,7 @@
   margin: var(--spacing-large) auto;
 }
 
-.c-blog-posts > .h-feed {
+.c-blog-posts {
   display: grid;
   gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
