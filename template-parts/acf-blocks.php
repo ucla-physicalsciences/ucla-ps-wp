@@ -315,7 +315,7 @@ wp_reset_query();
         <p class="c-school-card__summary"><?php echo $c_school_card_summary; ?></p>
       <?php endif; ?>
       <?php if ( !empty ($c_school_card_ribbon) ):		?>
-        <p class="school-card__ribbon ribbon--yellow c-school-card__ribbon"><span><?php echo $c_school_card_ribbon; ?></span></p>
+        <p class="c-school-card__ribbon"><?php echo $c_school_card_ribbon; ?></p>
       <?php endif; ?>
 
       <?php if( !empty ($c_school_card_desc)):		?>
