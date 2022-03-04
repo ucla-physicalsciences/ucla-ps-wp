@@ -6,8 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
+ **/
 
 ?>
 
@@ -15,10 +14,10 @@
   <?php
 
 		if ( ! is_search() ) {
-			get_template_part( 'template-parts/featured-image' );
+			get_template_part( 'template-parts/header/featured-image' );
 		}	
 	
-  get_template_part( 'template-parts/entry-header' );
+  get_template_part( 'template-parts/header/entry-header' );
 
 	?>
 

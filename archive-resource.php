@@ -1,12 +1,10 @@
 <?php
 /**
- * Resource archive template
- *
+ * Template (Name): Archive — Resource
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
+**/
 
 get_header();
 ?>
@@ -26,7 +24,7 @@ get_header();
 
 	if ( $archive_title || $archive_subtitle ) {
 		?>
- 		<header class="archive-header has-text-align-center header-footer-group">
+ 		<header class="archive-header">
 				<?php if ( $archive_title ) { ?>
 					<h1><?php echo wp_kses_post( $archive_title ); ?></h1>
 				<?php } ?>
@@ -87,5 +85,4 @@ get_header();
 
 
 
-<?php
-get_footer();
+<?php get_footer();

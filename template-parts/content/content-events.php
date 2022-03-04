@@ -6,9 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
-
+**/
 ?>
 
 
@@ -39,9 +37,9 @@ if( $posts ) {
 		<article <?php post_class("vevent"); ?> id="post-<?php the_ID(); ?>">
 		
 		<?php			 
-			get_template_part( 'template-parts/featured-image' );
+			get_template_part( 'template-parts/header/featured-image' );
 			
-			get_template_part( 'template-parts/entry-header' );
+			get_template_part( 'template-parts/header/entry-header' );
 			if( get_field('e-alt-name') ): ?>
 				<p class="standfirst"><?php echo esc_html( get_field('e-alt-name') ); ?></p>
 			<?php endif; ?>
@@ -108,7 +106,7 @@ if( $posts ) {
 </figure>
 		<?php			 
 		
-			get_template_part( 'template-parts/entry-header' );
+			get_template_part( 'template-parts/header/entry-header' );
 			if( get_field('e-alt-name') ): ?>
 				<p class="standfirst"><?php echo esc_html( get_field('e-alt-name') ); ?></p>
 			<?php endif; ?>

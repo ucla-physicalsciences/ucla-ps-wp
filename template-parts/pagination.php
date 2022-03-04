@@ -1,18 +1,10 @@
 <?php
 /**
- * A template partial to output pagination fir theme.
+ * A template partial to output pagination.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package ucla-ps-wp
-
- */
-
-/**
- * Translators:
- * This text contains HTML to allow the text to be shorter on small screens.
- * The text inside the span with the class nav-short will be hidden on small screens.
- */
+ **/
 
 $prev_text = sprintf(
 	'%s <span class="nav-prev-text">%s</span>',

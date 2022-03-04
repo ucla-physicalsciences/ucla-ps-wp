@@ -1,10 +1,9 @@
 <?php
 /**
- * The template for displaying archive pages
- *
+ * Template (Name): News Page
+ * Template Post Type: news, page
+ * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package ucla-ps-wp
  *
 **/
 
@@ -20,7 +19,7 @@ $description = get_the_archive_description();
 		<?php if ( $description ) : ?>
 			<div class="archive-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
 		<?php endif; ?>
-	</header><!-- .page-header -->
+	</header>
 
 	<?php while ( have_posts() ) : ?>
 		<?php the_post(); ?>

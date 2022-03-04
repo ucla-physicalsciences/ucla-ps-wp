@@ -1,11 +1,10 @@
 <?php
 /**
- * Project archive template
+ * Template (Name): Archive — Project
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
+**/
 
 get_header();
 ?>
@@ -23,61 +22,31 @@ get_header();
 		
 	}
 
-	if ( $archive_title || $archive_subtitle ) {
-		?>
-  <header class="archive-header header-footer-group">
-    <?php if ( $archive_title ) { ?>
-    <h1><?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></h1>
-    <?php } ?>
+if ( $archive_title || $archive_subtitle ) {
+?>
+<header class="archive-header">
+<?php if ( $archive_title ) { ?>
+<h1><?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></h1>
+<?php } ?>
 
-    <?php if ( $archive_subtitle ) { ?>
-    <p class="standfirst"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></p>
-    <?php } ?>
-  </header>
-
-  <?php
-	}
-
-
-
-	if ( have_posts() ) {
-
-		$i = 0;
-
-		while ( have_posts() ) {
-			$i++;
-			if ( $i > 1 ) {
-				//echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
-			}
-			the_post();
-
-			get_template_part( 'template-parts/content-projects', get_post_type() );
-
-		}
-	} elseif ( is_search() ) {
-		?>
-
-  <div class="no-search-results-form section-inner thin">
-
-    <?php
-			get_search_form(
-				array(
-					'label' => __( 'search again', 'twentytwenty' ),
-				)
-			);
-			?>
-
-  </div><!-- .no-search-results -->
-
-  <?php
-	}
-	?>
-
-  <?php get_template_part( 'template-parts/pagination' ); ?>
-
-</main><!-- #site-content -->
-
-
-
+<?php if ( $archive_subtitle ) { ?>
+<p class="standfirst"><?php echo wp_kses_post( wpautop( $archive_subtitle ) ); ?></p>
+<?php } ?>
+</header>
 <?php
-get_footer();
+}
+
+
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content-projects', get_post_type() );
+	}
+}
+
+get_template_part( 'template-parts/pagination' );
+?>
+
+</main>
+
+<?php get_footer();

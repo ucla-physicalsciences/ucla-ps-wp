@@ -1,11 +1,10 @@
 <?php
 /**
- * Project archive template
+ * Template Name: Archive — Video
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
+ **/
 
 get_header();
 ?>
@@ -25,7 +24,7 @@ get_header();
 
 	if ( $archive_title || $archive_subtitle ) {
 		?>
- 		<header>
+ 		<header class="archive-header">
      <div class="breadcrumb"><?php get_breadcrumb(); ?> / <?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></div>
 				<?php if ( $archive_title ) { ?>
 					<h1><?php echo wp_kses_post( post_type_archive_title( '', false ) ); ?></h1>
@@ -62,14 +61,11 @@ get_header();
 
     </div>
 
-    <?php
-	?>
 
 	<?php get_template_part( 'template-parts/pagination' ); ?>
 
-</main><!-- #site-content -->
+</main>
 
 
 
-<?php
-get_footer();
+<?php get_footer();

@@ -1,8 +1,9 @@
 <?php
 /**
- * Event archive template
+ * Template (Name): Archive — Event
+ * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @package ucla-ps-wp
+ *
 **/
 
 get_header();
@@ -36,16 +37,13 @@ get_header();
   <?php
 	}
 
-		 get_template_part( 'template-parts/content/content-events', get_post_type() );
-
-			
+	get_template_part( 'template-parts/content/content-events', get_post_type() );
 	?>
 
 
   <?php get_template_part( 'template-parts/pagination' ); ?>
-</main><!-- #site-content -->
+</main>
 
 
 
-<?php
-get_footer();
+<?php get_footer();

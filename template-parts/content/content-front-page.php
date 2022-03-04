@@ -1,6 +1,6 @@
 <?php
 /**
- * The default template for displaying content with full width template
+ * The default template for displaying content
  *
  * Used for both singular and index.
  *
@@ -10,32 +10,21 @@
 
 ?>
 
-
-
-	
-
 <article <?php post_class( 'h-entry' ); ?> id="post-<?php the_ID(); ?>">
-<?php
+  <?php
 
-		if ( ! is_search() ) {
-			get_template_part( 'template-parts/header/featured-image' );
-		}
-
-	//if ( is_front_page() ) :
-		//else :	
-			//get_template_part( 'template-parts/header/entry-header' );
-	//endif;	
+  if ( ! is_search() ) {
+    get_template_part( 'template-parts/header/featured-image' );
+  }	
 	
-	
-	get_template_part( 'template-parts/header/entry-header' );
-
+  get_template_part( 'template-parts/header/entry-header' );
 
 	?>
 
-	
-		<div class="e-content entry-content">
 
-			<?php
+  <div class="e-content entry-content">
+
+    <?php
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
 				the_excerpt();
 			} else {
@@ -43,11 +32,11 @@
 			}
 			?>
 
-		</div><!-- .entry-content -->
+  </div><!-- .entry-content -->
 
-	
-	<div class="section-inner">
-		<?php
+
+  <div class="section-inner">
+    <?php
 		wp_link_pages(
 			array(
 				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'twentytwenty' ) . '"><span class="label">' . __( 'Pages:', 'twentytwenty' ) . '</span>',
@@ -69,9 +58,9 @@
 		}
 		?>
 
-	</div><!-- .section-inner -->
+  </div><!-- .section-inner -->
 
-	<?php
+  <?php
 
 	if ( is_single() ) {
 

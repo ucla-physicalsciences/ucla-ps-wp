@@ -6,16 +6,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ucla-ps-wp
- */
+ **/
 
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 <?php
-		get_template_part( 'template-parts/featured-image' );
+		get_template_part( 'template-parts/header/featured-image' );
 
-	  get_template_part( 'template-parts/entry-header' );
+	  get_template_part( 'template-parts/header/entry-header' );
 
   ?>
 
