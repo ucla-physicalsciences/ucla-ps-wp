@@ -60,9 +60,10 @@
 				?>
 				
 				<?php
-					{
+					
+					if (is_array($person_links) || is_object($person_links)){
 					foreach ( $person_links as $person_link ):
-						if ( in_array( $person_link['p-link-site'], $custom_links ) ):
+						if ( in_array( $person_link['p-link-site'], $custom_links )  ):
 						?>
 						<p>
 							<a href="<?php echo esc_url( $person_link['p-link-url'] ); ?>" class="url website">
