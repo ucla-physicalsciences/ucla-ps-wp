@@ -12,12 +12,6 @@ if ( is_singular() ) {
 <header class="entry-header<?php echo esc_attr( $entry_header_classes ); ?>">
 
 	<?php
-		/**
-		 * Allow child themes and plugins to filter the display of the categories in the entry header.
-		 *
-		 * @param bool   Whether to show the categories in header, Default true.
-		 */
-
 
 		if ( is_singular() ) {
 			the_title( '<h1 class="p-name">', '</h1>' );

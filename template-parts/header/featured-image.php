@@ -1,9 +1,8 @@
 <?php
 /**
- * Displays the featured image
+ * Partial to display featured image
  *
- * @package ucla-ps-wp
- */
+**/
 ?>
 
 <figure class="c-hero-image">
