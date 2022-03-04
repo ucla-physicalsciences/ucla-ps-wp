@@ -27,6 +27,7 @@
 
 // THE MAGIC BEGINS
 
+if (function_exists('have_rows')) {
 if( have_rows('c-content-blocks') ):
   ?>
 
@@ -973,9 +974,15 @@ wp_reset_query();
 </div>
   <?php 
 else :
-	echo '';
+	//test if blocks used
+  //echo 'No ACF blocks found';
   ?>
 
 <?php
 endif; // END OF ACF MAGIC.
+
+}else {
+  //test if ACF plugin is installed and activated
+  echo 'ACF plugin is not activated';
+}
 ?>
