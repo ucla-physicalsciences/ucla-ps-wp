@@ -1,31 +1,22 @@
 <?php
 /**
- * The template for displaying all single posts
+ * Template (Name): Single
+ * This template is used to display a single post.  
+ * The template name is in () to disallow users to select it. 
+ * WordPress template hierachy used to to auto-select it based on slug.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package ucla-ps-wp
- */
+**/
 
 get_header();
 
-/* Start the Loop */
-while ( have_posts() ) :
-	the_post();
-
-	get_template_part( 'template-parts/content/content-single' );
-
-	if ( is_attachment() ) {
-		// Parent post navigation.
-		the_post_navigation(
-			array(
-				/* translators: %s: parent post link. */
-				'prev_text' => sprintf( __( '<span class="meta-nav">Published in</span><span class="post-title">%s</span>', 'basecamp' ), '%title' ),
-			)
-		);
+/* The loop starts here */
+if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/post/single' );
 	}
-
-
-endwhile; // End of the loop.
+}
 
 get_footer();
+?>

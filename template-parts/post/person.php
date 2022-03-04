@@ -2,9 +2,8 @@
 /**
  * Partial to display a person
 */
-
 ?>
-<main id="main" role="main">
+
 
 	<article <?php post_class('ucla-ps-c-people entry-content'); ?>
 		id="post-<?php the_ID(); ?>">
