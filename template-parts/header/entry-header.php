@@ -22,7 +22,7 @@ if ( is_singular() ) {
 
 	
 
-	if ( has_excerpt() && is_singular() ) {
+	if ( has_excerpt() && ! is_singular() ) {
 		?>
 
 		<div class="p-summary standfirst">
