@@ -93,6 +93,8 @@
 
   > figure {
     z-index: 1;
+    padding: 0;
+    margin: 0;
   }
 
   > div {
@@ -137,7 +139,7 @@
 
 
   a {
-    display: block;
+    //display: block;
     color: inherit;
     background-color: inherit;
     text-decoration: none;
@@ -270,6 +272,7 @@
       padding-top:  var(--spacing-large);
       font-size: var(--font-size-x-large);
       line-height: 1.2;
+      margin-bottom: 0;
     }
     
   

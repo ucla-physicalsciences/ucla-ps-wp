@@ -454,6 +454,8 @@ figcaption {
 }
 [data-layout*=c-gateway] > article > figure {
   z-index: 1;
+  padding: 0;
+  margin: 0;
 }
 [data-layout*=c-gateway] > article > div {
   z-index: 2;
@@ -490,7 +492,6 @@ figcaption {
   object-fit: cover;
 }
 [data-layout*=c-gateway] > article a {
-  display: block;
   color: inherit;
   background-color: inherit;
   text-decoration: none;
@@ -580,6 +581,7 @@ figcaption {
     padding-top: var(--spacing-large);
     font-size: var(--font-size-x-large);
     line-height: 1.2;
+    margin-bottom: 0;
   }
 }
 [data-layout*=c-stack] {
