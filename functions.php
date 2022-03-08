@@ -3,10 +3,11 @@
 // Create Theme Options Page
 require_once __DIR__ . "/options.php";
 
-add_action("after_setup_theme", "ucla_setup");
+add_action("after_setup_theme", "ucla_ps_setup");
 
-function ucla_setup()
+function ucla_ps_setup()
 {
+  remove_theme_support( 'core-block-patterns' );
   add_theme_support("title-tag");
   add_theme_support("automatic-feed-links");
   add_theme_support("post-thumbnails");
