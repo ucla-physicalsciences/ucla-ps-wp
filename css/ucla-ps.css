@@ -1316,7 +1316,7 @@ form.search-form .search-submit {
   width: fit-content;
 }
 
-[class*=wp-blocks] {
+[class*=wp-block-] {
   margin-bottom: var(--spacing-large);
 }
 
