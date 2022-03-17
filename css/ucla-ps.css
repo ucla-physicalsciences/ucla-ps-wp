@@ -1325,7 +1325,7 @@ form.search-form .search-submit {
   margin: var(--spacing-large) var(--spacing-small);
 }
 
-@media (min-width: 30em) {
+@media (min-width: 48em) {
   .entry-content,
 .c-people {
     max-width: var(--max-width);
@@ -1344,7 +1344,7 @@ main > header {
   margin: var(--spacing-large) var(--spacing-small);
 }
 
-@media (min-width: 30em) {
+@media (min-width: 48em) {
   [class*=single] > article,
 [class*=archive] > main,
 [class*=archive] > article {

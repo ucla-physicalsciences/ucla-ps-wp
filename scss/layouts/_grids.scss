@@ -9,7 +9,7 @@
   margin: var(--spacing-large) var(--spacing-small);
 }
 
-@media (min-width: $mq-xs){
+@media (min-width: $mq-md){
  
  .entry-content,
  .c-people {
@@ -46,7 +46,7 @@ main > header {
   margin: var(--spacing-large) var(--spacing-small);
 }
 
-@media (min-width: $mq-xs){
+@media (min-width: $mq-md){
  
  [class*="single"] > article,
  [class*="archive"] > main,
