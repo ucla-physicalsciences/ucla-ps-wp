@@ -1323,9 +1323,16 @@ form.search-form .search-submit {
 .entry-content,
 .c-people {
   max-width: var(--max-width);
-  margin: var(--spacing-large) auto;
+  margin: var(--spacing-large) var(--spacing-small);
 }
 
+@media (min-width: 30em) {
+  .entry-content,
+.c-people {
+    max-width: var(--max-width);
+    margin: var(--spacing-large) auto;
+  }
+}
 main > header {
   max-width: var(--max-width);
   margin: var(--spacing-large) auto;
