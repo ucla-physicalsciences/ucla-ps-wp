@@ -1316,6 +1316,10 @@ form.search-form .search-submit {
   width: fit-content;
 }
 
+[class*=wp-blocks] {
+  margin-bottom: var(--spacing-large);
+}
+
 .entry-content,
 .c-people {
   max-width: var(--max-width);
