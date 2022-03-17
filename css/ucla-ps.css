@@ -1339,14 +1339,16 @@ main > header {
 }
 
 [class*=single] > article,
-[class*=archive] > main {
+[class*=archive] > main,
+[class*=archive] > article {
   max-width: var(--max-width);
   margin: var(--spacing-large) var(--spacing-small);
 }
 
 @media (min-width: 30em) {
   [class*=single] > article,
-[class*=archive] > main {
+[class*=archive] > main,
+[class*=archive] > article {
     margin: var(--spacing-large) auto;
   }
 }
