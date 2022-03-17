@@ -753,7 +753,6 @@ figcaption {
 
 .entry-header > h2 {
   margin-top: var(--spacing-default);
-  font-size: var(--font-size-medium);
   line-height: var(--line-height-heading);
 }
 .entry-header > h2 a {
