@@ -1334,9 +1334,15 @@ main > header {
 [class*=single] > article,
 [class*=archive] > main {
   max-width: var(--max-width);
-  margin: var(--spacing-large) auto;
+  margin: var(--spacing-large) var(--spacing-small);
 }
 
+@media (min-width: 30em) {
+  [class*=single] > article,
+[class*=archive] > main {
+    margin: var(--spacing-large) auto;
+  }
+}
 .ucla-ps-columns {
   column-width: 18em;
 }

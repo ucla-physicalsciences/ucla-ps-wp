@@ -30,12 +30,22 @@ main > header {
 //   margin: var(--spacing-large) auto;
 // }
 
+
 [class*="single"] > article,
 [class*="archive"] > main {
   max-width: var(--max-width);
-  margin: var(--spacing-large) auto;
-//  outline: 2px solid red;
+  margin: var(--spacing-large) var(--spacing-small);
 }
+
+@media (min-width: $mq-xs){
+ 
+ [class*="single"] > article,
+ [class*="archive"] > main {
+   margin: var(--spacing-large) auto;
+ }
+}
+
+
 
 .ucla-ps-columns {
   column-width: 18em;
