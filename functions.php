@@ -70,67 +70,32 @@ function ucla_ps_setup()
   ]);
 
   global $content_width;
-
-  if (!isset($content_width)) {
-    $content_width = 1920;
+  
+  if ( ! isset( $content_width ) ) { $content_width = 1920; }
+    register_nav_menus( array(
+      'main-menu' => esc_html__( 'Main Menu', 'ucla' ),
+      'secondary-menu' => esc_html__( 'Secondary Menu', 'ucla-secondary' ),
+      'foot-menu' => esc_html__( 'Foot Menu (Menu name must be "Foot Menu")', 'ucla-foot' )
+    ));
   }
-  register_nav_menus([
-    "main-menu" => esc_html__("Main Menu", "ucla"),
-    "foot-menu" => esc_html__(
-      'Foot Menu (Menu name must be "Foot Menu")',
-      "ucla-foot"
-    ),
-  ]);
-}
 
 // Load Theme Scripts and Styles
 add_action("wp_enqueue_scripts", "ucla_load_scripts");
-function ucla_load_scripts()
-{
-  // CDN jQuery from Google
-  wp_enqueue_script(
-    "jq",
-    "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-  );
+function ucla_load_scripts() {
 
-  // UCLA Component library
-  wp_enqueue_style(
-    "lib-style",
-    get_template_directory_uri() . "/css/ucla-lib.css",
-    [],
-    null,
-    "screen"
-  );
-  wp_enqueue_script(
-    "lib-script",
-    get_template_directory_uri() . "/js/ucla-lib-scripts.min.js"
-  );
+  wp_enqueue_script( 'jq', get_template_directory_uri() . '/js/jquery.min.js' );
+  wp_enqueue_script( 'lib-script', get_template_directory_uri() . '/js/ucla-lib-scripts.min.js', array( 'jq' ), '', true );
+  wp_enqueue_script( 'ucla-wp', get_template_directory_uri() . '/js/ucla-wp-scripts.js', array('lib-script'), '', true );
 
-  // OLD UCLA WordPress Parent Theme
-  wp_enqueue_style(
-    "ucla-style",
-    get_template_directory_uri() . "/css/ucla-wp.css",
-    [],
-    null,
-    "screen"
-  );
-  wp_enqueue_script(
-    "ucla-script",
-    get_template_directory_uri() . "/js/ucla-wp-scripts.js"
-  );
+  wp_enqueue_style( 'lib-style', get_template_directory_uri() . '/css/ucla-lib.css' );  
+  wp_enqueue_style( 'ucla-wp', get_template_directory_uri() . '/css/ucla-wp.css', [], null, "screen" );
+  wp_enqueue_style( 'ucla-ps-wp', get_template_directory_uri() . "/css/ucla-ps.min.css", [], null, "screen" );
+    
 
-  // UCLA Physical Sciences Theme
-  wp_enqueue_style(
-    "ucla-ps-style",
-    get_template_directory_uri() . "/css/ucla-ps.css",
-    [],
-    null,
-    "screen"
-  );
 }
 
 // WP Admin Login Styles
-add_action("login_enqueue_scripts", "my_login_page_remove_back_to_link");
+//add_action("login_enqueue_scripts", "my_login_page_remove_back_to_link");
 function my_login_page_remove_back_to_link()
 {
   // Path the admin page login styles
@@ -424,3 +389,149 @@ function remove_dashboard_widgets()
 // {
 //     echo '<h2>Welcome to the UCLA Physical Sciences website.</h2>' . '<p>Get started</p>' . '<p><a href="https://github.com/ucla-ps-it/">UCLA Physical Sciences Github Org</a></p>';
 // }
+
+  // Web Component Library Navigation
+  class ucla_header_menu_walker extends Walker_Nav_Menu {
+    /**
+     * @see Walker::display_element()
+     * @since 2.5.0
+     *
+     * @param object $element           Data object.
+     * @param array  $children_elements List of elements to continue traversing (passed by reference).
+     * @param int    $max_depth         Max depth to traverse.
+     * @param int    $depth             Depth of current element.
+     * @param array  $args              An array of arguments.
+     * @param string $output            Used to append additional content (passed by reference).
+     */
+    function display_element($element, &$children_elements, $max_depth, $depth=0, $args, &$output)
+    {
+      $id_field = $this->db_fields['id'];
+      if ( is_object( $args[0] ) ) {
+        $args[0]->has_children = !empty( $children_elements[$element->$id_field] );
+      }
+      return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+  
+    /**
+     * @see Walker::start_el()
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item Menu item data object.
+     * @param int $depth Depth of menu item. Used for padding.
+     * @param int $current_page Menu item ID.
+     * @param object $args
+     */
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+      if ( $args->has_children && $depth == 0 ) {
+        $item->classes[] = 'nav-primary__link--has-children';
+      }
+      $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+      $class_names = $value = '';
+      $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+      $classes[] = 'nav-primary__item menu-item-' . $item->ID;
+  
+      $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+      $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+      $output .= $indent . '<li' . $class_names .'>';
+  
+      $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+      $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+      $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+      $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+      $attributes .= ' class="nav-primary__link' . (in_array("current_page_item", $item->classes) || in_array("current-menu-parent", $item->classes) ? ' nav-primary__link--current-page' : '') . '"';
+  
+      $item_output = $args->before;
+      $item_output .= '<a'. $attributes .'>';
+      $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+      $item_output .= '</a>';
+      $item_output .= $args->after;
+  
+      $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+  }
+  
+    /**
+     * @see Walker::start_lvl()
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int $depth Depth of page. Used for padding.
+     */
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+      $indent = str_repeat("\t", $depth);
+      $output .= "\n<ul class=\"nav-primary__sublist\">$indent</li>\n";
+    }
+  
+    /**
+     * @see Walker::end_lvl()
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param int $depth Depth of page. Used for padding.
+     */
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+      $indent = str_repeat("\t", $depth);
+      $output .= "$indent</ul>\n";
+    }
+  
+    /**
+     * @see Walker::end_el()
+     * @since 3.0.0
+     *
+     * @param string $output Passed by reference. Used to append additional content.
+     * @param object $item Page data object. Not used.
+     * @param int $depth Depth of page. Not Used.
+     */
+    function end_el( &$output, $item, $depth = 0, $args = array() ) {
+      $output .= "</li>\n";
+    }
+  }
+  
+  // Add Class to Nav List
+  function add_additional_class_on_li($classes, $item, $args) {
+    if(isset($args->list_class)) {
+        $classes[] = $args->list_class;
+    }
+    return $classes;
+  }
+  add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+  
+  function add_additional_class_on_anchor($classes, $item, $args) {
+    if (isset($args->link_class)) {
+      $classes['class'] = $args->link_class;
+    }
+    return $classes;
+  }
+  add_filter('nav_menu_link_attributes', 'add_additional_class_on_anchor', 1, 3);
+  
+  // Mobile Search Form
+  function mobile_search_form( $form ) {
+    $form = '<div class="nav-primary__search-mobile">';
+    $form .= '<form class="nav-primary__search-form" role="search" method="get" id="menu-search-mobile" action="'. home_url( '/' ) .'">';
+    $form .= '<label><span class="nav-primary__screen-reader-text visuallyhidden">Search for:</span><input type="search" class="nav-primary__search-field" placeholder="Search …" value="" name="s"></label>';
+    $form .= '<input type="submit" class="nav-primary__search-submit" value="Search">';
+    $form .= '</form></div>';
+    return $form;
+  }
+  
+  // Add search to first item of Primary Nav
+  function add_mobile_search($items, $args) {
+    if ($args->theme_location == 'main-menu') {
+      add_filter('get_search_form', 'mobile_search_form');
+      $mobilesearch = '<li>' . get_search_form(false) . '</li>';
+      return $mobilesearch.$items;
+    } else {
+      return $items;
+    }
+  }
+  add_filter('wp_nav_menu_items', 'add_mobile_search', 10, 2);
+  
+  // Add search to the end of Primary Nav
+  function add_search_to_navigation($items, $args) {
+    remove_filter('get_search_form', 'mobile_search_form');
+    if ($args->theme_location == 'main-menu') {
+      $items .= "<li>" . get_search_form(false) . "</li>";
+    }
+    return $items;
+  }
+  add_filter( 'wp_nav_menu_items', 'add_search_to_navigation', 10, 2 );
