@@ -1,4 +1,3 @@
-/* UCLA Stratcomm WordPress Parent Theme */
 // Add more stylesheets here. Use @imports to bring in style sheets per element.
 // Any stylesheets overriding WordPress specific classes should start with "wp-".
 
@@ -20,30 +19,30 @@
 @import "./components/_wp-hr";
 
 // Components
-//@import "./components/_accordion";
+// @import "./components/_accordion";
 @import "./components/_breadcrumbs";
-//@import "./components/_buttons";
+// @import "./components/_buttons";
 @import "./components/_custom-template-header";
 @import "./components/_custom-template-header-three";
-//@import "./components/_entry-content";
+// @import "./components/_entry-content";
 @import "./components/_footer";
 @import "./components/_front-page-one-header";
-//@import "./components/_hamburger";
+// @import "./components/_hamburger";
 @import "./components/_header";
 @import "./components/_page-header";
-//@import "./components/_pagination";
+// @import "./components/_pagination";
 @import "./components/_primary-nav";
 @import "./components/_search";
 @import "./components/_sidebar";
-//@import "./components/_side-menu";
+// @import "./components/_side-menu";
 @import "./components/_skip-nav";
-//@import "./components/_social-icons";
-//@import "./components/_tables";
-//@import "./components/_tag-cloud";
+// @import "./components/_social-icons";
+// @import "./components/_tables";
+// @import "./components/_tag-cloud";
 
 // Layouts
 // @import "./layouts/_404";
-//@import "./layouts/_home";
+// @import "./layouts/_home";
 @import "./layouts/_page-no-banner";
-//@import "./layouts/_page-template-default";
-//@import "./layouts/_page-single-col";
+// @import "./layouts/_page-template-default";
+// @import "./layouts/_page-single-col";

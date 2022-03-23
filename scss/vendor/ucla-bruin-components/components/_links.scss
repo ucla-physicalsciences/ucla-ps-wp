@@ -104,7 +104,7 @@
         &.related-links--external {
           &::after {
             content: "";
-            background: url("/icons/denotive/external-link--defaultblue.svg");
+            background: url("/wp-content/themes/ucla-ps-wp/icons/denotive/external-link--defaultblue.svg");
             background-size: contain;
             width: 24px;
             height: 24px;
@@ -115,7 +115,7 @@
           }
 
           &:hover::after {
-            background: url("/icons/denotive/external-link--white.svg");
+            background: url("/wp-content/themes/ucla-ps-wp/icons/denotive/external-link--white.svg");
             background-size: contain;
           }
         }
@@ -123,7 +123,7 @@
         &.related-links--download {
           &::after {
             content: "";
-            background: url("/icons/denotive/download--blue.svg");
+            background: url("/wp-content/themes/ucla-ps-wp/icons/denotive/download--blue.svg");
             background-size: contain;
             width: 24px;
             height: 24px;
@@ -134,7 +134,7 @@
           }
 
           &:hover::after {
-            background: url("/icons/denotive/download--white.svg");
+            background: url("/wp-content/themes/ucla-ps-wp/icons/denotive/download--white.svg");
             background-size: contain;
           }
         }

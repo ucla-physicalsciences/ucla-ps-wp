@@ -2,9 +2,8 @@
   position: absolute;
   right: -16px;
   top: -50px;
-  width: 44px;
-  height: 44px;
-  padding: 12px 12px;
+  width: 40px;
+  padding: 12px;
   border-radius: 2px;
 
   &:focus {
@@ -32,41 +31,39 @@
     }
   }
 
-  @media (min-width: $mq-md) {
-    top: -50px;
+  @media (min-width: breakpoint-min(md)) {
+    top: -40px;
     right: 24px;
   }
 
-  @media (min-width: $mq-lg) {
+  @media (min-width: breakpoint-min(lg)) {
     display: none;
   }
 
   &-box {
-    width: 24px;
-    height: 6px;
-    right: 6px;
+    width: 16px;
+    height: 12px;
 
     span {
-      width: 24px;
-      height: 3px;
+      width: 16px;
+      height: 2px;
       background: $ucla-blue !important;
-      border-radius: 0;
+      border-radius: 0px;
 
       &::before,
       &::after {
-        width: 24px;
-        height: 3px;
+        width: 16px;
+        height: 2px;
         background: $ucla-blue !important;
-        border-radius: 0;
+        border-radius: 0px;
       }
 
       &::before {
-        top: -8px;
+        top: -5px;
       }
 
       &::after {
-        bottom: -8px;
-        
+        bottom: -5px;
       }
     }
   }
