@@ -17,7 +17,7 @@
 // }
 
 body {
-min-height: 100vh;
+  min-height: 100vh;
 }
 
 /* Article (Critical: All) */
@@ -45,7 +45,10 @@ address .p-org {
 
 #header .site-name {
   color: black;
-  margin-top: 1em;
+  margin-top: .5em;
+  @media (min-width: $mq-md) {
+    margin-top: 1em;
+  }
 }
 
 #header .site-name a {

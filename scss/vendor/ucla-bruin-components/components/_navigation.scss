@@ -255,9 +255,11 @@
   display: block;
   position: relative;
   width: 100%;
+  top: -30px;
 
   @media (min-width: breakpoints.breakpoint-min(lg)) {
     width: auto;
+    top: 0;
   }
 
   .nav-primary {
