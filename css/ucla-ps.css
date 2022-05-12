@@ -179,6 +179,10 @@
   text-shadow: none;
 }
 
+body {
+  min-height: 100vh;
+}
+
 /* Article (Critical: All) */
 article {
   margin-bottom: var(--spacing-default);
@@ -193,6 +197,20 @@ address p {
 address .p-org {
   font-weight: bold;
   font-size: var(--font-size-medium);
+}
+
+#header .site-name {
+  color: black;
+  margin-top: 0.5em;
+}
+@media (min-width: 48em) {
+  #header .site-name {
+    margin-top: 1em;
+  }
+}
+
+#header .site-name a {
+  color: inherit;
 }
 
 /* Improve dark mode readability (Critical: All) */
@@ -703,6 +721,7 @@ figcaption {
 .c-people {
   max-width: var(--max-width);
   margin: var(--spacing-large) var(--spacing-small);
+  min-height: 50vh;
 }
 
 @media (min-width: 48em) {

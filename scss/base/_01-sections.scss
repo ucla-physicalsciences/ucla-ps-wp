@@ -16,6 +16,9 @@
 //   // line-height: var(--line-height-text);
 // }
 
+body {
+min-height: 100vh;
+}
 
 /* Article (Critical: All) */
 article {
@@ -39,3 +42,12 @@ address .p-org {
 //   max-width: var(--max-width);
 //   margin: var(--spacing-large) auto;
 // }
+
+#header .site-name {
+  color: black;
+  margin-top: 1em;
+}
+
+#header .site-name a {
+  color: inherit;
+}
