@@ -53,6 +53,8 @@ address .p-org {
 
 .site-name a,
 .site-name a:hover,
+.site-name a:active,
+.site-name a:visited
  {
-  color: inherit;
+  color: black !important;
 }

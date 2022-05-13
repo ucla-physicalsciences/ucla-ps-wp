@@ -210,8 +210,10 @@ address .p-org {
 }
 
 .site-name a,
-.site-name a:hover {
-  color: inherit;
+.site-name a:hover,
+.site-name a:active,
+.site-name a:visited {
+  color: black !important;
 }
 
 /* Improve dark mode readability (Critical: All) */
