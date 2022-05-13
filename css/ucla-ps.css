@@ -199,17 +199,18 @@ address .p-org {
   font-size: var(--font-size-medium);
 }
 
-#header .site-name {
+.site-name {
   color: black;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 @media (min-width: 48em) {
-  #header .site-name {
+  .site-name {
     margin-top: 1em;
   }
 }
 
-#header .site-name a {
+.site-name a,
+.site-name a:hover {
   color: inherit;
 }
 
