@@ -4,7 +4,7 @@
 $entry_header_classes = '';
 
 if ( is_singular() ) {
-	//$entry_header_classes .= ' header-footer-group';
+	$entry_header_classes .= ' header-footer-group';
 }
 
 ?>
@@ -12,10 +12,11 @@ if ( is_singular() ) {
 <header class="entry-header<?php echo esc_attr( $entry_header_classes ); ?>">
 
 	<?php
-
-		if ( is_singular() ) {
+		$title = get_the_title();
+		if ( strlen( $title ) == 0 && is_singular() ) {
 			the_title( '<h1 class="p-name">', '</h1>' );
-		} else {
+		} 
+		else if ( ! is_singular() ) {
 			
 			the_title( '<h2 class="p-name"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
 		}
