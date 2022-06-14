@@ -20,12 +20,14 @@
   get_template_part( 'template-parts/header/entry-header' );
 
 	?>
-
-
+<?php
+$content = get_the_content();
+if ( strlen( $content ) > 0 ) {
+  ?>
   <div class="e-content entry-content">
 
 	<?php the_content(); ?>
 
   </div><!-- .entry-content -->
-
+  <?php } ?>
 </article><!-- .post -->
