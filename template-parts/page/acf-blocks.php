@@ -137,7 +137,7 @@ if( have_rows('c-content-blocks') ):
     $c_section_block_title = esc_html(get_sub_field('c-section-block-title'));
     $c_section_block_image = get_sub_field('c-section-block-image');
     $c_section_block_desc = get_sub_field('c-section-block-desc');
-    $c_section_block_links = esc_html(get_sub_field('c-section-block-links'));
+    $c_section_block_links = get_sub_field('c-section-block-links');
     $size = 'full'; 
   
 
