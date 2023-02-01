@@ -285,7 +285,119 @@
 
 
 
+[data-layout*="c-single-post"] {
+  margin: var(--spacing-large) var(--spacing-default);
+  width: 100%;
+}
 
+[data-layout*="c-single-post"] img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+[data-layout*="c-single-post"]  > :nth-child(1) {
+  h1, h3 {
+    padding-top:  var(--spacing-default);
+    font-size: var(--font-size-large);
+    line-height: 1.2;
+  }
+  
+  h1 > a, 
+  h3 > a {
+  text-decoration: none;
+  }
+  
+  p {
+    padding-bottom:  var(--spacing-large);
+  }
+  
+  .dt-published {
+    display: none;
+  }
+}
+
+[data-layout*="c-single-post"] > :not(:nth-child(1)) {
+  
+      h1, h3 {
+        margin-top: var(--spacing-default);
+      }
+  
+      a {
+        text-decoration: none;
+      }
+  
+      .p-summary,
+      .dt-published {
+        display: none;
+      }
+  }
+
+@media (min-width: $mq-lg) {
+  [data-layout*="c-single-post"] {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "🐻 🐻 🐻"
+      "🏀 ⚽️ 🏈";
+    max-width: var(--max-width);
+    margin: var(--spacing-large) auto; 
+    
+  }
+
+  [data-layout*="c-single-post"] > .entry-header {
+    grid-area: 🐻;
+    display: grid;
+    grid-template-areas:
+      "story";
+    align-items: center;
+  
+    > figure {
+      grid-area: story;
+      justify-self: end;
+      z-index: 1;
+      max-width: 66%;
+    }
+  
+  
+    > div {
+      grid-area: story;
+      z-index: 2;
+    }
+  
+    div > * {
+      background-color: var(--ucla-white);
+      max-width: 33%;
+      padding-right: var(--spacing-large);
+    }
+  
+    h3 {
+      padding-top:  var(--spacing-large);
+      font-size: var(--font-size-x-large);
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+    
+  
+  }
+
+  [data-layout*="c-single-post"] > .entry-content {
+    grid-column: 1 / -1 ;
+  }
+  
+  // [data-layout*="c-single-post"] > :nth-child(3) {
+  //   grid-area: ⚽️;
+  // }
+  
+  // [data-layout*="c-single-post"] > :nth-child(4) {
+  //   grid-area: 🏈;
+  // }
+
+  
+  
+
+}
 
 
 // [data-layout*="c-newsroom"] {
