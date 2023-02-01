@@ -105,6 +105,21 @@ function my_login_page_remove_back_to_link()
   );
 }
 
+// Create UCLA Colors Admin Color Scheme via plugin https://github.com/uclaioes/ucla-wp-admin-color-scheme
+function set_default_admin_color($theme)
+{
+
+	// set new default admin color scheme
+	$theme = 'ucla-light-theme';
+
+	// return the new default color
+	return $theme;
+
+}
+
+add_filter('get_user_option_admin_color', 'set_default_admin_color', 10, 2 );
+
+
 // Breadcrumbs
 function get_breadcrumb()
 {
