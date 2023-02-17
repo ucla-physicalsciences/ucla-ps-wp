@@ -3,6 +3,11 @@
 // Create Theme Options Page
 require_once __DIR__ . "/options.php";
 
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . "/inc/customizer.php";
+
 add_action("after_setup_theme", "ucla_ps_setup");
 
 function ucla_ps_setup()
