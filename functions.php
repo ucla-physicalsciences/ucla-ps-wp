@@ -1,5 +1,5 @@
 <?php
-
+// Theme Functions
 // Create Theme Options Page
 require_once __DIR__ . "/options.php";
 
