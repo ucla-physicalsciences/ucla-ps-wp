@@ -407,7 +407,7 @@ function remove_dashboard_widgets()
 //
 // function custom_dashboard_help()
 // {
-//     echo '<h2>Welcome to the UCLA Physical Sciences website.</h2>' . '<p>Get started</p>' . '<p><a href="https://github.com/ucla-ps-it/">UCLA Physical Sciences Github Org</a></p>';
+//     echo '<h2>Welcome to the UCLA Physical Sciences website.</h2>' . '<p>Get started</p>' . '<p><a href="https://github.com/ucla-physicalsciences">UCLA Physical Sciences Github Org</a></p>';
 // }
 
   // Web Component Library Navigation
