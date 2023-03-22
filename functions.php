@@ -18,10 +18,30 @@ function ucla_ps_setup()
   add_theme_support("post-thumbnails");
   add_theme_support("html5", ["search-form"]);
   add_theme_support("responsive-embeds");
-  add_theme_support("editor-styles");
-  add_editor_style("style-editor.css");
-  add_theme_support("disable-custom-colors");
+  //add_theme_support("editor-styles");
+  //add_theme_support("disable-custom-colors");
+  //add_editor_style("style-editor.css");
   add_theme_support("editor-color-palette", [
+    [
+      "name" => esc_attr__("UCLA Blue", "uclaTheme"),
+      "slug" => "blue",
+      "color" => "#2774ae",
+    ],
+    [
+      "name" => esc_attr__("UCLA Gold", "uclaTheme"),
+      "slug" => "gold",
+      "color" => "#ffd100",
+    ],
+    [
+      "name" => esc_attr__("Darker Blue", "uclaTheme"),
+      "slug" => "darker-blue",
+      "color" => "#005587",
+    ],
+    [
+      "name" => esc_attr__("Darkest Blue", "uclaTheme"),
+      "slug" => "darkest-blue",
+      "color" => "#003b5c",
+    ],
     [
       "name" => esc_attr__("White", "uclaTheme"),
       "slug" => "white",
@@ -52,26 +72,7 @@ function ucla_ps_setup()
       "slug" => "black",
       "color" => "#000",
     ],
-    [
-      "name" => esc_attr__("UCLA Blue", "uclaTheme"),
-      "slug" => "blue",
-      "color" => "#2774ae",
-    ],
-    [
-      "name" => esc_attr__("UCLA Gold", "uclaTheme"),
-      "slug" => "gold",
-      "color" => "#ffd100",
-    ],
-    [
-      "name" => esc_attr__("Darker Blue", "uclaTheme"),
-      "slug" => "darker-blue",
-      "color" => "#005587",
-    ],
-    [
-      "name" => esc_attr__("Darkest Blue", "uclaTheme"),
-      "slug" => "darkest-blue",
-      "color" => "#003b5c",
-    ],
+    
   ]);
 
   global $content_width;
@@ -236,17 +237,25 @@ function ucla_right_init()
 }
 
 /**
- * Remove hard coded thumbnail image dimensions?
+ * Function and filters to remove width|height attributes. 
  * https://wordpress.stackexchange.com/questions/22302/how-do-you-remove-hard-coded-thumbnail-image-dimensions
+ * https://petragregorova.com/articles/how-to-remove-height-and-width-attributes-from-images-in-wordpress/
  */
-add_filter("post_thumbnail_html", "remove_thumbnail_dimensions", 10);
-add_filter("image_send_to_editor", "remove_thumbnail_dimensions", 10);
-//add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
-function remove_thumbnail_dimensions($html)
-{
-  $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+
+function remove_width_attribute( $html ) { 
+  $html = preg_replace( '/(width|height)="\d*"\s/', "", $html ); 
   return $html;
 }
+
+add_filter("post_thumbnail_html", "remove_width_attribute", 10);
+add_filter("image_send_to_editor", "remove_width_attribute", 10);
+//add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
+
+
+// Filters the returned oEmbed HTML.
+// https://developer.wordpress.org/reference/hooks/oembed_dataparse/
+add_filter( 'oembed_dataparse', 'remove_width_attribute', 10 );  
+
 
 /**
  * Add media alternate image sizes besides WP defaults
