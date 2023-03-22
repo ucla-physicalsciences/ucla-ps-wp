@@ -18,62 +18,6 @@ function ucla_ps_setup()
   add_theme_support("post-thumbnails");
   add_theme_support("html5", ["search-form"]);
   add_theme_support("responsive-embeds");
-  //add_theme_support("editor-styles");
-  //add_theme_support("disable-custom-colors");
-  //add_editor_style("style-editor.css");
-  add_theme_support("editor-color-palette", [
-    [
-      "name" => esc_attr__("UCLA Blue", "uclaTheme"),
-      "slug" => "blue",
-      "color" => "#2774ae",
-    ],
-    [
-      "name" => esc_attr__("UCLA Gold", "uclaTheme"),
-      "slug" => "gold",
-      "color" => "#ffd100",
-    ],
-    [
-      "name" => esc_attr__("Darker Blue", "uclaTheme"),
-      "slug" => "darker-blue",
-      "color" => "#005587",
-    ],
-    [
-      "name" => esc_attr__("Darkest Blue", "uclaTheme"),
-      "slug" => "darkest-blue",
-      "color" => "#003b5c",
-    ],
-    [
-      "name" => esc_attr__("White", "uclaTheme"),
-      "slug" => "white",
-      "color" => "#ffffff",
-    ],
-    [
-      "name" => esc_attr__("Grey 10", "uclaTheme"),
-      "slug" => "grey-10",
-      "color" => "#E5E5E5",
-    ],
-    [
-      "name" => esc_attr__("Grey 40", "uclaTheme"),
-      "slug" => "grey-40",
-      "color" => "#999",
-    ],
-    [
-      "name" => esc_attr__("Grey 60", "uclaTheme"),
-      "slug" => "grey-60",
-      "color" => "#666",
-    ],
-    [
-      "name" => esc_attr__("Grey 80", "uclaTheme"),
-      "slug" => "grey-80",
-      "color" => "#333",
-    ],
-    [
-      "name" => esc_attr__("Black", "uclaTheme"),
-      "slug" => "black",
-      "color" => "#000",
-    ],
-    
-  ]);
 
   global $content_width;
   
