@@ -31,6 +31,8 @@
 		},
 		"color": {
 			"defaultPalette": false,
+			"defaultGradients": false,
+			"customGradient": false,
 			"palette": [
 				{
 					"slug": "ucla-blue",
@@ -152,7 +154,7 @@
 	"styles": {
 		"spacing": {
 			"blockGap": "1em",
-			"padding": "1em"
+			"padding": "2em"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--helvetica)",
