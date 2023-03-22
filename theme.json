@@ -106,7 +106,7 @@
 					"slug": "ucla-warning-orange",
 					"color": "#F57F17",
 					"name": "UCLA Warning Orange"
-				},
+				}
 
 			]
 		},
@@ -151,7 +151,8 @@
 	},
 	"styles": {
 		"spacing": {
-			"blockGap": "0"
+			"blockGap": "1em",
+			"padding": "1em"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--helvetica)",
