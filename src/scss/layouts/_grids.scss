@@ -1,0 +1,57 @@
+.page main {
+  max-width: var(--max-width);
+  margin: var(--spacing-8) auto;
+}
+
+main > header {
+  max-width: var(--max-width);
+  margin: var(--spacing-8) auto;
+}
+
+// .page-id-882 main > article {
+//   max-width: initial;
+//   margin: var(--spacing-8) auto;
+// }
+
+// .page-id-882 .c-school-card-stack {
+//   max-width: var(--max-width);
+//   margin: var(--spacing-8) auto;
+//   background-color: white;
+// }
+
+// main > article > header {
+//   max-width: var(--max-width);
+//   margin: var(--spacing-8) auto;
+// }
+
+main > article[class*="post"]{
+  max-width: var(--max-width);
+  margin: var(--spacing-8) auto;
+}
+
+[class*="single"] > article,
+[class*="archive"] > main,
+[class*="archive"] > article {
+  max-width: var(--max-width);
+  margin: var(--spacing-8) var(--spacing-3);
+}
+
+@media (min-width: $mq-md){
+ 
+ [class*="single"] > article,
+ [class*="archive"] > main,
+ [class*="archive"] > article  {
+   margin: var(--spacing-8) auto;
+ }
+}
+
+
+
+.ucla-ps-columns {
+  column-width: 18em;
+}
+
+
+
+
+

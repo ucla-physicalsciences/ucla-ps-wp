@@ -1,0 +1,68 @@
+//  =====================================================
+//  HTML Living Standard
+//  Forms
+//  https://html.spec.whatwg.org/multipage/forms.html
+//  Elements: form, label, input, button, select, datalist, optgroup, option, textarea, output, progress, meter, fieldset, legend
+//  =====================================================
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// button {
+//   display: block;
+//   padding: var(--spacing-3) var(--spacing-8);
+//   margin: var(--spacing-8) 0;
+//   font-family: var(--font-family-display);
+//   font-weight: var(--font-weight-bold);
+//   letter-spacing: -0.015em;
+//   background-color: #efefef;
+// }
+
+// form h3 {
+//   margin-block-start: var(--spacing-8);
+//   margin-block-end: var(--spacing-2);
+//   font-size: var(--font-size-medium);
+// }
+
+input {
+  padding: var(--spacing-5);
+}
+
+/* Buttons (Critical: All) */
+
+button {
+display: inline-block;
+margin: 0;
+padding: var(--spacing-5);
+background-color: var(--color-theme);
+border-width: 0;
+color: #fff;
+cursor: pointer;
+font-size: var(--font-size-default);
+font-weight: var(--font-weight-bold);
+line-height: 1;
+text-decoration: none;
+transform: translateY(0);
+transition: all var(--duration-quickly) ease;
+-webkit-appearance: none;
+appearance: none;
+}
+
+// .btn:hover {
+// position: relative;
+// top: -1px;
+// color: #fff;
+// text-decoration: none;
+// }
+// 
+// .btn:visited {
+// color: #fff;
+// } 
+
+.btn-group {
+padding: var(--spacing-6) 0;
+}

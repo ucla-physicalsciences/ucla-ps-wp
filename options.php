@@ -149,11 +149,7 @@ if (!class_exists('UCLA_Theme_Options')) {
                 } else {
                     unset($options['instagram_input']); // Remove from options if empty
                 }
-                if (!empty($options['snapchat_input'])) {
-                    $options['snapchat_input'] = sanitize_textarea_field($options['snapchat_input']);
-                } else {
-                    unset($options['snapchat_input']); // Remove from options if empty
-                }
+                
                 if (!empty($options['linkedin_input'])) {
                     $options['linkedin_input'] = sanitize_textarea_field($options['linkedin_input']);
                 } else {
@@ -257,13 +253,7 @@ if (!class_exists('UCLA_Theme_Options')) {
                     <input type="text" name="theme_options[twitter_input]" placeholder="twitter.com/" value="<?php echo esc_attr($twitter); ?>" />
                 </td>
             </tr>
-            <tr valign="top">
-                <th scope="row"><?php esc_html_e('Footer Snapchat Link', 'text-domain'); ?></th>
-                <td>
-                    <?php $snapchat = self::get_theme_option('snapchat_input'); ?>
-                    <input type="text" name="theme_options[snapchat_input]" placeholder="snapchat.com/" value="<?php echo esc_attr($snapchat); ?>" />
-                </td>
-            </tr>
+            
             <tr valign="top">
                 <th scope="row"><?php esc_html_e('Footer Linkedin Link', 'text-domain'); ?></th>
                 <td>

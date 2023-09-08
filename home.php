@@ -9,7 +9,7 @@
    
 ?>
     <header>
-      <div class="breadcrumb"><?php get_breadcrumb(); ?> / News</div>
+      <p class="breadcrumb"><?php get_breadcrumb(); ?> / News</p>
       <?php if ( $page_title ) { ?>
         <h1><?php echo wp_kses_post( $page_title ); ?></h1>
       <?php } ?>
@@ -41,7 +41,7 @@
               // Start the Loop
               while ( $the_query->have_posts() ) : $the_query->the_post();
               // Loop Content
-              include 'template-parts/card-story-ucla-ps.php';
+              include 'template-parts/cards/card-story-ucla-ps.php';
               // End the Loop
               endwhile;
              ?>
@@ -55,7 +55,8 @@
           wp_reset_postdata();
           ?>
 
-          <nav class="nav-links pagination u-max-width">
+    </div>
+    <nav class="nav-links pagination u-max-width">
             <?php echo paginate_links([
               'format'  => 'page/%#%',
               'current' => $paged,
@@ -65,9 +66,6 @@
               'next_text'       => __('&raquo;')
             ]); ?>
           </nav>
-       
-
-    </div>
 
     <?php get_template_part('nav', 'below'); ?>
 </main>

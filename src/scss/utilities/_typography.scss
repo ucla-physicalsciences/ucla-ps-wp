@@ -1,0 +1,40 @@
+.standfirst {
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-text);
+  margin-block-end: var(--spacing-3);
+}
+
+.lede {
+  font-size: var(--font-size-medium);
+  line-height: var(--line-height-text);
+  margin-block-end: var(--spacing-3);
+}
+
+p + time {
+  margin-top: 0;
+}
+
+// .p-summary {
+//   margin-bottom: 0;
+// }
+
+// time {  
+//   font-size: 90%;
+// }
+
+.btn {
+  width: fit-content;
+}
+
+.h1 {
+  font-size: clamp(2.25rem, 0.8382rem + 2.9412vw, 3rem);
+}
+
+.h2 {
+  font-size: clamp(1.75rem, 0.8382rem + 2.9412vw, 2.25rem);
+  margin-block-start: 1em;
+}
+.h3 {
+  font-size: clamp(1.25rem, 0.8382rem + 2.9412vw, 1.5rem);
+  margin-block-start: 1em;
+}

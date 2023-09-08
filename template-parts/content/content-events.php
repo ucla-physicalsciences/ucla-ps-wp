@@ -29,7 +29,7 @@ $posts = get_posts( array(
 
 if( $posts ) {
 	?>
-		<h2>Upcoming Events</h2>
+		<h2 class="mb-6">Upcoming Events</h2>
 		<div class="h-feed">
 		<?php	
     foreach( $posts as $post ) {
@@ -45,17 +45,22 @@ if( $posts ) {
 			<?php endif; ?>
 			
 			<?php
-			$event_start = get_field('e-start-date'); 
-			if ( $event_start ) : ?> 
-			<time class="event-date" datetime="<?php echo custom_html_date( $event_start ) ; ?>"><?php echo custom_public_date( $event_start ); ?></time>
-			<time class="event-time-start" datetime="<?php echo custom_html_time( $event_start ) ; ?>"><?php echo custom_public_time( $event_start ); ?></time>
+			$event_start_date = get_field('e-start-date'); 
+			if ( $event_start_date ) : ?> 
+			<time class="event-date-start" datetime="<?php echo custom_html_date( $event_start_date ) ; ?>"><?php echo custom_public_date( $event_start_date ); ?></time>
 			<?php endif; ?>
-	
+			<?php 
+			$event_start_time = get_field('e-start-time'); 
+			if ( $event_start_time ) : ?> 
+				<time class="event-time-start" datetime="<?php echo custom_html_time( $event_start_time ); ?>"><?php echo custom_public_time($event_start_time); ?></time>
+				
+			<?php endif; 
+		?>
 			<?php 
 			$event_end_time = get_field('e-end-time'); 
 			if ( $event_end_time ) : ?> 
 				- <time class="event-time-end" datetime="<?php echo custom_html_time( $event_end_time ); ?>"><?php echo custom_public_time($event_end_time); ?></time>
-				<hr>
+				
 			<?php endif; 
 		?>
 		</article>
@@ -91,7 +96,7 @@ $posts = get_posts( array(
 
 if( $posts ) {
 	?>
-		<h2>Past Events</h2>
+		<h2 class="mt-8 mb-6">Past Events</h2>
 		<div class="h-feed">
 		<?php	
     foreach( $posts as $post ) {
@@ -112,17 +117,20 @@ if( $posts ) {
 			<?php endif; ?>
 			
 			<?php
-			$event_start = get_field('e-start-date'); 
-			if ( $event_start ) : ?> 
-			<time class="event-date" datetime="<?php echo custom_html_date( $event_start ) ; ?>"><?php echo custom_public_date( $event_start ); ?></time>
-			<time class="event-time-start" datetime="<?php echo custom_html_time( $event_start ) ; ?>"><?php echo custom_public_time( $event_start ); ?></time>
+			$event_start_date = get_field('e-start-date'); 
+			if ( $event_start_date ) : ?> 
+			<time class="event-date-start" datetime="<?php echo custom_html_date( $event_start_date ) ; ?>"><?php echo custom_public_date( $event_start_date ); ?></time>
 			<?php endif; ?>
 	
 			<?php 
+			$event_start_time = get_field('e-start-time'); 
+			if ( $event_start_time ) : ?> 
+				<time class="event-time-start" datetime="<?php echo custom_html_time( $event_start_time ); ?>"><?php echo custom_public_time($event_start_time); ?></time>
+			<?php endif; 
 			$event_end_time = get_field('e-end-time'); 
 			if ( $event_end_time ) : ?> 
 				- <time class="event-time-end" datetime="<?php echo custom_html_time( $event_end_time ); ?>"><?php echo custom_public_time($event_end_time); ?></time>
-				<hr>
+				
 			<?php endif; 
 		?>
 		</article>

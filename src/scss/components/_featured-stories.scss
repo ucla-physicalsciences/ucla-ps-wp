@@ -1,0 +1,317 @@
+// --c-gateway : The Gateway
+// --c-newsroom : The Newsroom
+// --c-stack : The Stack
+// --c-alt : The Alternate  
+
+
+.c-featured-story-card {
+  margin: 1em 0;
+  display: block;
+}
+
+// BEGIN THEME STYLES
+
+.c-featured-stories:first-of-type {
+  width: 100%;
+  padding-block-end: .5em;
+  background: linear-gradient(180deg, #005587 0%, #2774AE 100%);
+  margin: var(--spacing-8) 0;
+}
+
+// the gateway layout
+
+[data-layout*="c-gateway"] {
+  display: grid;
+  gap: var(--grid-column-gap);
+  margin: var(--spacing-8) var(--spacing-5);
+  max-width: var(--max-width);
+  transform: translateY(-24px);
+}
+
+[data-layout*="c-gateway"] article {
+  margin-block-end: var(--spacing-6);
+}
+
+@media (min-width: $mq-md) {
+  [data-layout*="c-gateway"] {
+    display: grid;
+    gap: var(--grid-column-gap);
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "🐻 🐻"
+      "🏀 🏈";
+    margin: var(--spacing-8);
+  }
+
+  [data-layout*="c-gateway"] > :nth-child(1) {
+    grid-area: 🐻;
+  }
+
+  [data-layout*="c-gateway"] > :nth-child(2) {
+    grid-area: 🏀;
+  }
+
+  [data-layout*="c-gateway"] > :nth-child(3) {
+    grid-area: 🏈;
+  }
+
+  [data-layout*="c-gateway"] > :first-child h2 {
+    padding: 1em 1em .8em;
+    width: 66%;
+    font-weight: 600;
+  }
+
+  [data-layout*="c-gateway"] > :not(:first-child) h2 {
+    width: 80%;
+    padding: 0.75em 1em .5em;
+    font-size: 1em;
+    font-weight: 600;
+  }
+
+
+}
+
+@media (min-width: $mq-lg) {
+  [data-layout*="c-gateway"] {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-areas:
+      "🐻 🏀"
+      "🐻 🏈";
+    margin: var(--spacing-8) auto;
+  }
+
+}
+
+
+[data-layout*="c-gateway"] > article {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+
+  > * {
+    grid-row: 1;
+    grid-column: 1 / -1;
+  }
+
+  > figure {
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+  }
+
+  > div {
+    z-index: 2;
+    height: fit-content;
+    align-self: end;
+  }
+
+  h2 {
+    position: relative;
+    background-color: var(--ucla-white);
+    color: var(--ucla-blue);
+  }
+
+  h2::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: 16px;
+    width: 64px;
+    height: 4px;
+    background: var(--ucla-gold);
+    margin-block-end: 24px;
+  }
+
+  h2:hover {
+    background-color: var(--ucla-blue);
+    color: var(--ucla-white);
+  }
+
+  .p-summary,
+  .dt-published {
+    display: none;
+  }
+
+  img {
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    object-fit: cover;
+  }
+
+
+  a,
+  a:link {
+    //display: block;
+    color: inherit;
+    background-color: inherit;
+  }
+
+}
+
+
+// the newsroom layout
+
+[data-layout*="c-newsroom"] {
+  margin: var(--spacing-8) var(--spacing-5);
+  width: 100%;
+}
+
+[data-layout*="c-newsroom"] img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+[data-layout*="c-newsroom"] > :nth-child(1) {
+  h2 {
+    padding-block-start: var(--spacing-5);
+    font-size: var(--font-size-large);
+    line-height: 1.2;
+  }
+
+  h2 > a {
+    text-decoration: none;
+  }
+
+  p {
+    padding-block-end: var(--spacing-8);
+  }
+
+  .dt-published {
+    display: none;
+  }
+}
+
+[data-layout*="c-newsroom"] > :not(:nth-child(1)) {
+
+  h2 {
+    margin-block-start: var(--spacing-5);
+  }
+
+  a,
+  a:link {
+    text-decoration: none;
+  }
+
+  .p-summary,
+  .dt-published {
+    display: none;
+  }
+}
+
+@media (min-width: $mq-lg) {
+  [data-layout*="c-newsroom"] {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "🐻 🐻 🐻"
+      "🏀 ⚽️ 🏈";
+    max-width: var(--max-width);
+    margin: var(--spacing-8) auto;
+
+  }
+
+  [data-layout*="c-newsroom"] > :nth-child(2) {
+    grid-area: 🏀;
+  }
+
+  [data-layout*="c-newsroom"] > :nth-child(3) {
+    grid-area: ⚽️;
+  }
+
+  [data-layout*="c-newsroom"] > :nth-child(4) {
+    grid-area: 🏈;
+  }
+
+  [data-layout*="c-newsroom"] > :nth-child(1) {
+    grid-area: 🐻;
+    display: grid;
+    grid-template-areas:
+      "story";
+    align-items: center;
+
+    > figure {
+      grid-area: story;
+      justify-self: end;
+      z-index: 1;
+      max-width: 66%;
+    }
+
+
+    > div {
+      grid-area: story;
+      z-index: 2;
+    }
+
+    div > * {
+      background-color: var(--ucla-white);
+      max-width: 33%;
+      padding-inline-end: var(--spacing-8);
+    }
+
+    h2 {
+      padding-block-start: var(--spacing-8);
+      font-size: var(--font-size-x-large);
+      line-height: 1.2;
+      margin-block-end: 0;
+    }
+
+
+  }
+
+
+}
+
+// OVERRIDE UCLA WEB COMPONENTS
+// .story,
+// .story__featured,
+// .story__featured-card,
+// .story__featured-content,
+// .story__featured-image,
+// .story__featured-title,
+// .story__featured-blurb,
+// .story__featured-source {
+//   //all: initial;
+//   width: initial;
+//   max-width: initial;
+//   margin: initial;
+//   padding: initial;
+//   float: initial;
+//   position: initial;
+//   top: initial;
+//   color: initial;
+//   //font-size: initial;
+//   //font-weight: bold;
+//   line-height: initial;
+// }
+
+
+
+
+
+
+
+
+[data-layout*="c-stack"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap);
+  max-width: var(--max-width);
+  margin: var(--spacing-8) auto;
+  padding: 1.5rem;
+}
+
+[data-layout*="c-stack"] img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+[data-layout*="c-alt"] {
+  margin-block-end: var(--spacing-8);
+  // outline: 5px solid black;
+}

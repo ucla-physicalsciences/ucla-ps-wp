@@ -1,11 +1,12 @@
 {
     "key": "group_57b3a33cec6df",
-    "title": "Schema: Person",
+    "title": "Person Schema",
     "fields": [
         {
             "key": "field_57bcce9f60b56",
             "label": "Personal Info",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5ef0ce4171575",
             "label": "Honorific Prefix",
             "name": "p-honorific-prefix",
+            "aria-label": "",
             "type": "text",
             "instructions": "e.g. Ms., Mr. or Dr.",
             "required": 0,
@@ -41,6 +43,7 @@
             "key": "field_57b3a3e0d290b",
             "label": "First Name",
             "name": "p-given-name",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -60,6 +63,7 @@
             "key": "field_5ef0ce74eb928",
             "label": "Middle Name",
             "name": "p-additional-name",
+            "aria-label": "",
             "type": "text",
             "instructions": "e.g., middle name or initial",
             "required": 0,
@@ -79,6 +83,7 @@
             "key": "field_57b3a41dd290c",
             "label": "Last Name",
             "name": "p-family-name",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 1,
@@ -98,6 +103,7 @@
             "key": "field_5ef0cd9a1eba5",
             "label": "Honorific Suffix",
             "name": "p-honorific-suffix",
+            "aria-label": "",
             "type": "text",
             "instructions": "e.g. Ph.D., MS, MD, etc.",
             "required": 0,
@@ -114,9 +120,33 @@
             "maxlength": ""
         },
         {
+            "key": "field_6446988990400",
+            "label": "Academic Unit",
+            "name": "p-academic-unit",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "multiple": 0,
+            "allow_null": 0
+        },
+        {
             "key": "field_57ab6a21e3786",
             "label": "Job Title",
             "name": "p-job-title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -136,6 +166,7 @@
             "key": "field_57b39300ed8ce",
             "label": "Affiliation",
             "name": "p-org",
+            "aria-label": "",
             "type": "text",
             "instructions": "An organization that this person is affiliated with. For example, a school\/university, a club, or a team.",
             "required": 0,
@@ -155,6 +186,7 @@
             "key": "field_5f1ef6a08e793",
             "label": "Personal Pronouns",
             "name": "p-personal-pronouns",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -174,6 +206,7 @@
             "key": "field_5ef14deb9b57f",
             "label": "Contact Info",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -190,6 +223,7 @@
             "key": "field_57ab6d1ce3787",
             "label": "Telephone",
             "name": "p-tel",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -209,6 +243,7 @@
             "key": "field_57ab6e08e3788",
             "label": "Email",
             "name": "p-email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -227,6 +262,7 @@
             "key": "field_57acbb918ccf0",
             "label": "Address",
             "name": "p-adr",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Enter full mailing address",
             "required": 0,
@@ -246,6 +282,7 @@
             "key": "field_5d82ad52a7543",
             "label": "Short Summary",
             "name": "p-summary",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -265,6 +302,7 @@
             "key": "field_5ef0f08099118",
             "label": "Links",
             "name": "p-links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -278,12 +316,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5ef0f0ca99119",
                     "label": "Site",
                     "name": "p-link-site",
+                    "aria-label": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -311,12 +351,14 @@
                     "ui": 0,
                     "return_format": "value",
                     "ajax": 0,
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5ef0f08099118"
                 },
                 {
                     "key": "field_5ef0f13a9911a",
                     "label": "Site URL",
                     "name": "p-link-url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -327,12 +369,14 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5ef0f08099118"
                 },
                 {
                     "key": "field_5ef0f16b9911b",
                     "label": "Site Name",
                     "name": "p-link-name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -354,7 +398,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5ef0f08099118"
                 }
             ]
         },
@@ -362,6 +407,7 @@
             "key": "field_608b3b2e5537e",
             "label": "Meta",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -376,8 +422,9 @@
         },
         {
             "key": "field_608b3b415537f",
-            "label": "Related Blog Posts",
+            "label": "Related Posts",
             "name": "p-related-posts",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "",
             "required": 0,
@@ -390,82 +437,21 @@
             "post_type": [
                 "post"
             ],
+            "post_status": "",
             "taxonomy": "",
             "filters": [
                 "search"
             ],
-            "elements": "",
+            "return_format": "object",
             "min": "",
             "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_608b3b8255380",
-            "label": "Related Projects",
-            "name": "p-related-projects",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "project"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
-            "return_format": "object"
-        },
-        {
-            "key": "field_57bcceb260b57",
-            "label": "Interests",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5f1ef7deb65be",
-            "label": "Tag",
-            "name": "p-tag",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "post_tag",
-            "field_type": "checkbox",
-            "add_term": 0,
-            "save_terms": 1,
-            "load_terms": 0,
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0
+            "elements": ""
         },
         {
             "key": "field_59640541ea86a",
             "label": "Secondary Photo",
             "name": "p-photo",
+            "aria-label": "",
             "type": "image",
             "instructions": "This is a secondary photo that can be used for other purposes than the featured image.",
             "required": 0,
@@ -485,6 +471,29 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5f1ef7deb65be",
+            "label": "Tag",
+            "name": "p-tag",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "post_tag",
+            "field_type": "checkbox",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -511,5 +520,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646418634
+    "modified": 1682542955
 }

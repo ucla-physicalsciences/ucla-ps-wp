@@ -1,0 +1,42 @@
+{
+    "key": "group_644abe7588e98",
+    "title": "Categories Extra Fields",
+    "fields": [
+        {
+            "key": "field_644abe754d10b",
+            "label": "URL",
+            "name": "category-academic-unit-url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Academic Unit official website",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1682620174
+}

@@ -1,11 +1,12 @@
 {
     "key": "group_5d23cb0c3c7c1",
-    "title": "People",
+    "title": "Lists of People",
     "fields": [
         {
             "key": "field_5d23cb0c70ff0",
             "label": "Intro Section",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5d23cb0c70ffe",
             "label": "Title",
             "name": "l-people-list-intro_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "Intro title",
             "required": 0,
@@ -41,6 +43,7 @@
             "key": "field_5d23cb0c7103a",
             "label": "Description",
             "name": "ioes-l-people-list-intro_desc",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -60,6 +63,7 @@
             "key": "field_5d23cb0c7104d",
             "label": "People Block",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -76,6 +80,7 @@
             "key": "field_5d23cb0c71058",
             "label": "People by topic",
             "name": "ioes-l-repeater-list-people-by-topic",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -89,12 +94,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5d23cb0c98f6e",
                     "label": "Heading",
                     "name": "ioes-l-people-list_heading",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Create a heading to group people together.",
                     "required": 0,
@@ -108,12 +115,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5d23cb0c71058"
                 },
                 {
                     "key": "field_5d23cb0c98f9a",
                     "label": "Group List",
                     "name": "ioes-l-people-list-group",
+                    "aria-label": "",
                     "type": "relationship",
                     "instructions": "Add people to your group.",
                     "required": 0,
@@ -133,7 +142,8 @@
                     "elements": "",
                     "min": "",
                     "max": "",
-                    "return_format": "object"
+                    "return_format": "object",
+                    "parent_repeater": "field_5d23cb0c71058"
                 }
             ]
         }
@@ -162,5 +172,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646418694
+    "modified": 1682025579
 }
