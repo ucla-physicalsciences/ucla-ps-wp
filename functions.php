@@ -18,61 +18,6 @@ function ucla_ps_setup()
   add_theme_support("post-thumbnails");
   add_theme_support("html5", ["search-form"]);
   add_theme_support("responsive-embeds");
-  add_theme_support("editor-styles");
-  add_editor_style("style-editor.css");
-  add_theme_support("disable-custom-colors");
-  add_theme_support("editor-color-palette", [
-    [
-      "name" => esc_attr__("White", "uclaTheme"),
-      "slug" => "white",
-      "color" => "#ffffff",
-    ],
-    [
-      "name" => esc_attr__("Grey 10", "uclaTheme"),
-      "slug" => "grey-10",
-      "color" => "#E5E5E5",
-    ],
-    [
-      "name" => esc_attr__("Grey 40", "uclaTheme"),
-      "slug" => "grey-40",
-      "color" => "#999",
-    ],
-    [
-      "name" => esc_attr__("Grey 60", "uclaTheme"),
-      "slug" => "grey-60",
-      "color" => "#666",
-    ],
-    [
-      "name" => esc_attr__("Grey 80", "uclaTheme"),
-      "slug" => "grey-80",
-      "color" => "#333",
-    ],
-    [
-      "name" => esc_attr__("Black", "uclaTheme"),
-      "slug" => "black",
-      "color" => "#000",
-    ],
-    [
-      "name" => esc_attr__("UCLA Blue", "uclaTheme"),
-      "slug" => "blue",
-      "color" => "#2774ae",
-    ],
-    [
-      "name" => esc_attr__("UCLA Gold", "uclaTheme"),
-      "slug" => "gold",
-      "color" => "#ffd100",
-    ],
-    [
-      "name" => esc_attr__("Darker Blue", "uclaTheme"),
-      "slug" => "darker-blue",
-      "color" => "#005587",
-    ],
-    [
-      "name" => esc_attr__("Darkest Blue", "uclaTheme"),
-      "slug" => "darkest-blue",
-      "color" => "#003b5c",
-    ],
-  ]);
 
   global $content_width;
   
@@ -84,17 +29,20 @@ function ucla_ps_setup()
     ));
   }
 
+/**
+ * Register Walker Class
+ */
+require get_template_directory() . '/classes/class-ucla-wordpress-primary-navigation-walker.php';
+require get_template_directory() . '/classes/class-ucla-wordpress-secondary-navigation-walker.php';
+
 // Load Theme Scripts and Styles
 add_action("wp_enqueue_scripts", "ucla_load_scripts");
 function ucla_load_scripts() {
 
-  wp_enqueue_script( 'jq', get_template_directory_uri() . '/js/jquery.min.js' );
-  wp_enqueue_script( 'lib-script', get_template_directory_uri() . '/js/ucla-lib-scripts.min.js', array( 'jq' ), '', true );
-  wp_enqueue_script( 'ucla-wp', get_template_directory_uri() . '/js/ucla-wp-scripts.js', array('lib-script'), '', true );
+  wp_enqueue_script( 'ucla-lib-script', get_template_directory_uri() . '/dist/js/ucla-lib-scripts.min.js', '', '2.0.0-beta.2', true );
 
-  wp_enqueue_style( 'lib-style', get_template_directory_uri() . '/css/ucla-lib.css' );  
-  wp_enqueue_style( 'ucla-wp', get_template_directory_uri() . '/css/ucla-wp.css', [], null, "screen" );
-  wp_enqueue_style( 'ucla-ps-wp', get_template_directory_uri() . "/css/ucla-ps.min.css", [], null, "screen" );
+  wp_enqueue_style( 'ucla-lib', get_template_directory_uri() . '/dist/css/ucla-lib.min.css' );  
+  wp_enqueue_style( 'ucla-ps', get_template_directory_uri() . "/css/ucla-ps.min.css", [], null, "screen" );
     
 
 }
@@ -235,18 +183,40 @@ function ucla_right_init()
   ]);
 }
 
-/**
- * Remove hard coded thumbnail image dimensions?
- * https://wordpress.stackexchange.com/questions/22302/how-do-you-remove-hard-coded-thumbnail-image-dimensions
- */
-add_filter("post_thumbnail_html", "remove_thumbnail_dimensions", 10);
-add_filter("image_send_to_editor", "remove_thumbnail_dimensions", 10);
-//add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
-function remove_thumbnail_dimensions($html)
+// Add Sidebar widget
+add_action("widgets_init", "ucla_footer_init");
+function ucla_footer_init()
 {
-  $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
+  register_sidebar([
+    "name" => esc_html__("Footer Widget", "ucla"),
+    "id" => "footer-widget",
+    "before_widget" => '<div class="footer-widget-container %2$s">',
+    "after_widget" => "</div>",
+    "before_title" => '<h3 class="widget-title">',
+    "after_title" => "</h3>",
+  ]);
+}
+
+/**
+ * Function and filters to remove width|height attributes. 
+ * https://wordpress.stackexchange.com/questions/22302/how-do-you-remove-hard-coded-thumbnail-image-dimensions
+ * https://petragregorova.com/articles/how-to-remove-height-and-width-attributes-from-images-in-wordpress/
+ */
+
+function remove_width_attribute( $html ) { 
+  $html = preg_replace( '/(width|height)="\d*"\s/', "", $html ); 
   return $html;
 }
+
+add_filter("post_thumbnail_html", "remove_width_attribute", 10);
+add_filter("image_send_to_editor", "remove_width_attribute", 10);
+//add_filter( 'the_content', 'remove_thumbnail_dimensions', 10 );
+
+
+// Filters the returned oEmbed HTML.
+// https://developer.wordpress.org/reference/hooks/oembed_dataparse/
+add_filter( 'oembed_dataparse', 'remove_width_attribute', 10 );  
+
 
 /**
  * Add media alternate image sizes besides WP defaults
@@ -294,29 +264,6 @@ function ucla_ps_remove_menus()
   //remove_menu_page( 'users.php' );                  //Users
   //remove_menu_page( 'tools.php' );                  //Tools
   //remove_menu_page( 'options-general.php' );        //Settings
-}
-
-/* Tracking script for Gauges Analytics https://secure.gaug.es/ */
-// disabled action and pasted script code in footer.php right before closing body tag
-// add_action('wp_footer', 'add_gauges_analytics_tracking_code');
-function add_gauges_analytics_tracking_code()
-{
-  ?>
-<script type="text/javascript">
-var _gauges = _gauges || [];
-(function() {
-var t = document.createElement('script');
-t.type = 'text/javascript';
-t.async = true;
-t.id = 'gauges-tracker';
-t.setAttribute('data-site-id', '61d7595279f7ec7745a5bda4');
-t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
-t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(t, s);
-})();
-</script>
-<?php
 }
 
 /**
@@ -523,35 +470,4 @@ function remove_dashboard_widgets()
     return $classes;
   }
   add_filter('nav_menu_link_attributes', 'add_additional_class_on_anchor', 1, 3);
-  
-  // Mobile Search Form
-  function mobile_search_form( $form ) {
-    $form = '<div class="nav-primary__search-mobile">';
-    $form .= '<form class="nav-primary__search-form" role="search" method="get" id="menu-search-mobile" action="'. home_url( '/' ) .'">';
-    $form .= '<label><span class="nav-primary__screen-reader-text visuallyhidden">Search for:</span><input type="search" class="nav-primary__search-field" placeholder="Search …" value="" name="s"></label>';
-    $form .= '<input type="submit" class="nav-primary__search-submit" value="Search">';
-    $form .= '</form></div>';
-    return $form;
-  }
-  
-  // Add search to first item of Primary Nav
-  function add_mobile_search($items, $args) {
-    if ($args->theme_location == 'main-menu') {
-      add_filter('get_search_form', 'mobile_search_form');
-      $mobilesearch = '<li>' . get_search_form(false) . '</li>';
-      return $mobilesearch.$items;
-    } else {
-      return $items;
-    }
-  }
-  add_filter('wp_nav_menu_items', 'add_mobile_search', 10, 2);
-  
-  // Add search to the end of Primary Nav
-  function add_search_to_navigation($items, $args) {
-    remove_filter('get_search_form', 'mobile_search_form');
-    if ($args->theme_location == 'main-menu') {
-      $items .= "<li>" . get_search_form(false) . "</li>";
-    }
-    return $items;
-  }
-  add_filter( 'wp_nav_menu_items', 'add_search_to_navigation', 10, 2 );
+ 

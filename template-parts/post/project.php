@@ -66,13 +66,13 @@
 			
 				
         <?php
-				// display project authors
-        $authors = get_field('proj-authors');
-        if( $authors ): ?>
+				// display project contributers
+        $proj_related_people = get_field('proj-related-people');
+        if( $proj_related_people ): ?>
 				<div class="ucla-ps-c-authors">
         <p><b>Leadership</b></p>
         <ul>
-        <?php foreach( $authors as $post ): 
+        <?php foreach( $proj_related_people as $post ): 
         // Setup this post for WP functions (variable must be named $post).
         setup_postdata($post); ?>
         	<li>

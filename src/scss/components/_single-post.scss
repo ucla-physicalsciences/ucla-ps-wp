@@ -1,0 +1,203 @@
+[data-layout*="c-single-post"] {
+  margin: var(--spacing-8) var(--spacing-5);
+  width: 100%;
+}
+
+[data-layout*="c-single-post"] img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+[data-layout*="c-single-post"] > :nth-child(1) {
+
+  h1,
+  h3 {
+    color: var(--ucla-darker-blue);
+    padding-block-start: var(--spacing-5);
+    font-size: var(--font-size-display);
+    line-height: 1.2;
+  }
+
+  h1 > a:link,
+  h2 > a:link,
+  h3 > a:link,
+  .wp-block-heading > a:not([class]),
+   {
+    text-decoration: none;
+  }
+
+  p:not(.lede) {
+    padding-block-end: var(--spacing-8);
+  }
+
+  .dt-published {
+    display: none;
+  }
+}
+
+
+[data-layout*="c-single-post"] > :not(:nth-child(1)) {
+
+  h1,
+  h2,
+  h3 {
+    margin-block: var(--spacing-5);
+  }
+
+  .p-summary,
+  .dt-published {
+    display: none;
+  }
+
+  h1 > a:link,
+  h2 > a:link,
+  h3 > a:link,
+  .wp-block-heading > a:not([class]),
+   {
+    text-decoration: none;
+  }
+}
+
+[data-layout*="c-single-post"] {
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  ul li {
+    margin-block-end: var(--spacing-3);
+  }
+
+  ul a:link {
+    font-size: var(--font-size-small);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: var(--spacing-5);
+    background-color: var(--ucla-gold);
+    color: var(--ucla-darkest-blue);
+
+
+    &:hover {
+      background-color: var(--ucla-blue);
+      color: var(--ucla-white);
+    }
+  }
+
+  ul.post-categories a:link,
+  ul.post-categories a:not([class]) {
+    text-decoration: none;
+  }
+}
+
+@media (min-width: $mq-lg) {
+  [data-layout*="c-single-post"] {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "🐻 🐻 🐻"
+      "🏀 ⚽️ 🏈";
+    max-width: var(--max-width);
+    margin: var(--spacing-8) auto;
+
+  }
+
+  [data-layout*="c-single-post"] > .entry-header {
+    grid-area: 🐻;
+    display: grid;
+    grid-template-areas:
+      "story";
+    align-items: center;
+
+    > figure {
+      grid-area: story;
+      justify-self: end;
+      z-index: 1;
+      // object-fit: cover;
+      max-width: 70%;
+    }
+
+
+    > div {
+      grid-area: story;
+      z-index: 2;
+      background-color: var(--ucla-white);
+      max-width: 40%;
+    }
+
+    div > * {
+
+      //max-width: 40%;
+      padding-inline-end: var(--spacing-8);
+    }
+
+    h3 {
+      padding-block-start: var(--spacing-8);
+      font-size: var(--font-size-x-large);
+      line-height: 1.2;
+      margin-block-end: 0;
+    }
+  }
+
+  [data-layout*="c-single-post"] > .entry-content {
+    grid-column: 1 / -1;
+
+    > * {
+      //max-width: 80ch;
+      margin-inline-start: 30%;
+    }
+
+    
+
+    .entry-content {
+      max-width: var(--max-width);
+      margin: var(--spacing-8) var(--spacing-3);
+    }
+    
+    @media (min-width: $mq-md){
+     
+     .entry-content {
+       max-width: var(--max-width);
+       margin: var(--spacing-8) auto;
+     }
+
+     .entry-content > p:not(.standfirst) {
+      max-width: 80ch;
+    }
+    }
+
+    figure:not(.wp-block-pullquote) {
+      margin-block-end: var(--spacing-8);
+    }
+
+    .wp-block-pullquote {
+      margin-block: var(--spacing-6);
+      padding: 1.75rem;
+      border-left: 8px solid $ucla-blue;
+      text-align: left;
+    }
+    .wp-block-pullquote p,
+    .wp-block-pullquote cite {
+      font-size: var(--font-size-x-large);
+      max-width: 45ch;
+     
+     
+      // text-align: justify;
+    }
+  }
+  // [data-layout*="c-single-post"] > :nth-child(3) {
+  //   grid-area: ⚽️;
+  // }
+
+  // [data-layout*="c-single-post"] > :nth-child(4) {
+  //   grid-area: 🏈;
+  // }
+
+
+
+
+}

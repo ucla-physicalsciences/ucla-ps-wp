@@ -1,0 +1,75 @@
+// Styles for people and a person
+
+.ucla-ps-c-people {
+  max-width: var(--max-width);
+  margin: var(--spacing-8) var(--spacing-3);
+}
+
+@media (min-width: $mq-md) {
+  .ucla-ps-c-people {
+    max-width: var(--max-width);
+    margin: var(--spacing-8) auto;
+  }
+}
+
+.ucla-ps-c-people > .h-feed {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+  align-items: start;
+  
+}
+
+.ucla-ps-c-people > .h-feed > .ucla-card__person {
+  //outline: 1px solid red; 
+  display: grid;
+  height: 100%;
+  // background-color: $ucla-gold;
+
+  figure {
+    z-index: 1;
+  }
+
+  .ucla-card__body {
+    min-height: 200px;
+    //outline: 1px solid green; 
+  }
+}
+
+.ucla-card__person .ucla-card__person-pronouns {
+  font-weight: 600;
+  font-size: 90%;
+  color: $grey-80;
+  
+}
+.ucla-card__person .ucla-card__person-department {
+  color: $grey-80;
+  font-weight: 700;
+}
+
+.ucla-card__person .ucla-card__person-pronouns + .ucla-card__person-department {
+  margin-block-start: 0;
+}
+
+.ucla-card__person address {
+  margin-block: 1em;
+}
+
+// overwrite ucla component library's unnecessary margin top and max widths
+// .ucla-card__person:first-child {
+//   margin-block-start: initial !important;
+// }
+
+// .ucla-card__body {
+//   max-width: initial !important;
+// }
+
+// .ucla-card__person {
+//   max-width: 100% !important;
+//   margin: 0 !important;
+// }
+
+// .c-people figure {
+//   margin: 0;
+//   padding: 0;
+// }

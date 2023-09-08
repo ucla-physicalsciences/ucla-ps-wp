@@ -50,20 +50,31 @@ if( have_rows('c-content-blocks') ):
   $posts = get_sub_field('c-featured-story-card');
   $ucla_ps_c_visual_style = get_sub_field_object('c-featured-story-block-visual-style');
 
-  if( $posts ): ?>
+  if( $posts ): 
+    
+    ?>
       <div class="c-featured-stories"> 
       <div class="h-feed" <?php if( !empty($ucla_ps_c_visual_style ) ): echo 'data-layout="' . esc_attr($ucla_ps_c_visual_style['value']) . '"' ; endif; ?>>
-      <?php foreach ( $posts as $post):  ?>
+      <?php foreach ( $posts as $post):  
+        if ( get_field( 'post-use_external_url_for_link' )===true )
+          {
+          $link_attrs = "href='".esc_url( get_field( 'post-external-url' ) )."'";
+        }
+        else
+         {
+          $link_attrs = "href='".get_permalink()."'";
+        }
+        ?>
       <article class="h-entry" id="post-<?php the_ID(); ?>">
         <figure>
-          <a href="<?php the_permalink(); ?>" rel="bookmark">
+        <a aria-label="<?php the_title(); ?>" class="link u-url" <?php echo $link_attrs; ?> rel="bookmark">
             <?php setup_postdata($post); ?>
             <?php the_post_thumbnail( 'medium', ['class' => 'u-photo c-post-img'] ); ?>
           </a>
         </figure>
         <div>
-          <h3 class="p-name"><a class="link u-url" href="<?php the_permalink(); ?>"
-              rel="bookmark"><?php the_title(); ?></a></h3>
+          <h2 class="p-name h3"><a class="link u-url" <?php echo $link_attrs; ?>
+              rel="bookmark"><?php the_title(); ?></a></h2>
           <p class="p-summary"><?= wp_strip_all_tags( get_the_excerpt(), true ) ?></p>
           <time class="dt-published"
             datetime="<?php echo get_post_time( 'Y-n-j' ); ?>"><?php echo get_post_time( 'F j, Y' ); ?></time>
@@ -170,7 +181,7 @@ if( have_rows('c-content-blocks') ):
       $c_section_block_link_title = get_sub_field('c-section-block-link-title');
       $c_section_block_link_url = get_sub_field('c-section-block-link-url'); 
     if ($c_section_block_links): ?>
-    <li><a class="btn btn--lightbg" href="<?php echo esc_url($c_section_block_link_url); ?>"><?php echo $c_section_block_link_title; ?></a></li>
+    <li><a class="ucla-btn ucla-btn--primary" href="<?php echo esc_url($c_section_block_link_url); ?>"><?php echo $c_section_block_link_title; ?></a></li>
   <?php endif;
 
   endwhile; 
@@ -295,7 +306,7 @@ wp_reset_query();
 
       <?php if (!empty ($c_school_card_image) ): ?>
         <div class="c-school-card-image">
-        <?php if ($c_school_card_link): ?><a class="u-url"
+        <?php if ($c_school_card_link): ?><a title="Link to <?php echo $c_school_card_heading; ?>" class="u-url"
           href="<?php echo $c_school_card_link; ?>">
         <?php endif; ?>
         <?php echo wp_get_attachment_image( $c_school_card_image, $size, $class ); ?>
@@ -478,7 +489,7 @@ if( !empty( $c_events_heading ) ): ?>
           <?php the_post_thumbnail( 'medium', ['class' => 'c-event-img'] ); ?>
 
       </figure>
-      <h2 class="p-name"><a href="<?php the_permalink(); ?>"
+      <h2 class="p-name h3"><a href="<?php the_permalink(); ?>"
           rel="bookmark"><?php the_title(); ?></a></h2>
 
       <?php
@@ -489,14 +500,17 @@ if( !empty( $c_events_heading ) ): ?>
 
       <div class="e-content">
         <?php
-    $event_start = get_field('e-start-date'); 
-    if ( $event_start ) : ?>
-        <time class="event-date"
-          datetime="<?php echo custom_html_date( $event_start ) ; ?>"><?php echo custom_public_date( $event_start ); ?></time>
-        <time class="event-time-start"
-          datetime="<?php echo custom_html_time( $event_start ) ; ?>"><?php echo custom_public_time( $event_start ); ?></time>
+        $event_start_date = get_field('e-start-date'); 
+        if ( $event_start_date ) : ?>
+        <time class="event-date-start"
+          datetime="<?php echo custom_html_date( $event_start_date ) ; ?>"><?php echo custom_public_date( $event_start_date ); ?></time>
         <?php endif; ?>
-        <?php
+        
+        <?php 
+        $event_start_time = get_field('e-start-time'); 
+			  if ( $event_start_time ) : ?> 
+				  <time class="event-time-start" datetime="<?php echo custom_html_time( $event_start_time ); ?>"><?php echo custom_public_time($event_start_time); ?></time>
+			<?php endif; 
       $event_end_time = get_field('e-end-time'); 
 			if ( $event_end_time ) : ?>
         - <time class="event-time-end"
@@ -612,7 +626,7 @@ if( !empty( $c_pages_heading ) ): ?>
 
       <?php endif; ?>
 
-      <h2 class="p-name"><a
+      <h2 class="p-name h4"><a
           href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
 
@@ -656,10 +670,10 @@ endif;
 		$posts = get_sub_field('c-people-list');
     if( $posts ): 
 ?>
-  <div class="c-people">
+  <div class="ucla-ps-c-people">
     <?php
 if( !empty( $c_people_heading ) ): ?>
-    <h2 class="c-title-name"><?php echo $c_people_heading; ?></h2>
+    <h2 class="ucla-ps-c-title-name"><?php echo $c_people_heading; ?></h2>
     <?php endif; ?>
     <?php if( !empty( $c_people_summary ) ): ?>
     <p><?php echo $c_people_summary; ?></p>
@@ -683,24 +697,28 @@ if( !empty( $c_people_heading ) ): ?>
     // endif;  
     ?>
 
-    <article class="h-entry person-card-grey" id="post-<?php the_ID(); ?>">
+    <article class="h-entry ucla-card ucla-card__person" id="post-<?php the_ID(); ?>">
     <?php if ( has_post_thumbnail() ) : ?>
-    <figure class="person-card__figure"><a href="<?php the_permalink(); ?>">
-    <?php the_post_thumbnail( 'square_thumb', ['class' => 'person-card__image u-photo avatar'] ); ?></a>
+    <figure><a title="Link to <?php the_title(); ?> profile page" class="ucla-card__image--link" href="<?php the_permalink(); ?>">
+    <?php the_post_thumbnail( 'square_thumb', ['class' => 'ucla-card__image u-photo avatar'] ); ?></a>
     <?php $caption = get_the_post_thumbnail_caption() ?>
     <?php if ( $caption ): ?>
-    <figcaption><?php echo esc_html( $caption ); ?></figcaption>
+    <figcaption class="ucla-card__person-credit"><?php echo esc_html( $caption ); ?></figcaption>
     <?php endif; ?>
     </figure>
     <?php endif; ?>
-    <div class="person-card__info-wrapper">
-      <h1 class="person-card__name p-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+    <div class="ucla-card__body">
+      <h1 class="ucla-card__title p-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+      <?php if( get_field('p-personal-pronouns') ): ?>
+			<p class="ucla-card__person-pronouns"><b><?php echo esc_html( get_field( 'p-personal-pronouns' ) ); ?></b>
+			</p>
+		  <?php endif; ?>
       <?php if( $p_job_title ): ?>
-      <h2 class="person-card__department"><span class="p-job-title"><?php echo esc_html( $p_job_title ); ?></span><?php if( $p_org ): ?>, <span class="p-org"><?php echo esc_html( $p_org ); ?></span><?php endif; ?>
+      <p class="ucla-card__person-department"><span class="p-job-title"><?php echo esc_html( $p_job_title ); ?></span><?php if( $p_org ): ?>, <span class="p-org"><?php echo esc_html( $p_org ); ?></span><?php endif; ?>
       </h2>
 			<?php endif; ?>
       <?php if( $p_summary ): ?>
-        <p class="person-card__description p-summary"><?php echo esc_html($p_summary); ?></p>
+        <p class="ucla-card__description p-summary"><?php echo esc_html($p_summary); ?></p>
 			<?php endif; ?>
       </div>  
     </article>
@@ -796,7 +814,7 @@ if( get_row_layout() == 'c-oembed-block' ):
        
 		
 			?>
-  <div class="c-oembed">
+  <div class="c-oembed-block">
 
     <?php if( !empty( $c_oembed_heading ) ): ?>
     <h2 class="c-title-name"><?php echo $c_oembed_heading; ?></h2>
@@ -812,7 +830,7 @@ if( get_row_layout() == 'c-oembed-block' ):
 				if( have_rows('c-oembed-list') ):
 				?>
 				
-				<div class="c-oembeds">
+				<div class="c-oembed-list">
 					<?php 	
 					// Loop through rows
 					while( have_rows('c-oembed-list') ) : the_row(); ?>

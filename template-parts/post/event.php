@@ -19,13 +19,17 @@
     <?php endif; ?>
 
         <?php 
-        $event_start = get_field('e-start-date'); 
+        $event_start_date = get_field('e-start-date'); 
   
-        if ( $event_start ) : ?> 
-				<time class="event-date" datetime="<?php echo custom_html_date( $event_start ) ; ?>"><?php echo custom_public_date( $event_start ); ?></time>
-        <time class="event-time-start" datetime="<?php echo custom_html_time( $event_start ) ; ?>"><?php echo custom_public_time( $event_start ); ?></time>
+        if ( $event_start_date ) : ?> 
+				<time class="event-date-start" datetime="<?php echo custom_html_date( $event_start_date ) ; ?>"><?php echo custom_public_date( $event_start_date ); ?></time>
 				<?php endif; ?>
-        
+        <?php 
+        $event_start_time = get_field('e-start-time'); 
+       
+        if ( $event_start_time ) : ?> 
+          <time class="event-time-start" datetime="<?php echo custom_html_time( $event_start_time ); ?>"><?php echo custom_public_time($event_start_time); ?></time>
+				<?php endif; ?>
         <?php 
         $event_end_time = get_field('e-end-time'); 
        
@@ -33,8 +37,8 @@
           - <time class="event-time-end" datetime="<?php echo custom_html_time( $event_end_time ); ?>"><?php echo custom_public_time($event_end_time); ?></time>
 				<?php endif; ?>
         <?php if( get_field('e-venue') ): ?>
-    <p class="event-venue"><?php echo esc_html( get_field( 'e-venue' ) ); ?></p>
- 	 <?php endif; ?>
+    		<p class="event-venue"><?php echo esc_html( get_field( 'e-venue' ) ); ?></p>
+ 	 			<?php endif; ?>
         
         <?php 
 				// display project website
@@ -68,10 +72,10 @@
 					// Loop through rows
 					while( have_rows('e-embeds') ) : the_row(); ?>
 						<figure>
-							<?php if( get_sub_field('e-embed-name') ):?>
+						<?php the_sub_field('e-embed-url'); ?>
+						<?php if( get_sub_field('e-embed-name') ):?>
 							<figcaption><?php the_sub_field('e-embed-name'); ?></figcaption>
 							<?php endif; ?>
-						<?php the_sub_field('e-embed-url'); ?>
 					</figure>
 					<?php // End loop for embeds.
 						endwhile; ?>
@@ -225,46 +229,18 @@
 				<?php endif; // end repeater for files ?>
 
         <?php if( get_field('e-contact-name') ): ?>
+					<div class="event-contact">
          <p><b>For more information, please contact</b>:</p> 
           <p class="event-contact-name"><?php echo esc_html( get_field( 'e-contact-name' ) ); ?>
           <?php if( get_field('e-contact-email') ): ?>
-            <span class="event-contact-email"><?php echo esc_html( get_field( 'e-contact-email' ) ); ?></span>
+            <span class="event-contact-email"><a href="mailto:<?php echo esc_html( get_field( 'e-contact-email' ) ); ?>"><?php echo esc_html( get_field( 'e-contact-email' ) ); ?></a></span>
             <?php endif; ?>
             <?php if( get_field('e-contact-tel') ): ?>
             <span class="event-content-tel"><?php echo esc_html( get_field( 'e-contact-tel' ) ); ?></span>
             <?php endif; ?>
           </p>
+					</div>
         <?php endif; ?> 
-
-        <?php 
-				// display event status
-				if( get_field_object('e-status') ): 
-				$event_status = get_field_object('e-status');
-				$event_status_value = $event_status['value'];
-				$event_status_label = $event_status['choices'][ $event_status_value ];
-				?>
-				<p><b>Event Status</b>: <?php echo esc_html( $event_status_label ); ?></p>
-				<?php endif; ?>
-
-
-        <?php if( get_field('e-price') ): ?>
-        <p class="event-cost"><b>Price</b>: <?php echo esc_html( get_field( 'e-price' ) ); ?></p>
-        <?php endif; ?>
-        <?php if( get_field('e-audience') ): ?>
-        <p class="event-cost"><b>Audience</b>: <?php echo esc_html( get_field( 'e-audience' ) ); ?></p>
-        <?php endif; ?>
-       
-
-        <?php 
-				// display event mode
-				if( get_field_object('e-attendance-mode') ): 
-				$event_attendence = get_field_object('e-attendance-mode');
-				$event_attendence_value = $event_attendence['value'];
-				$event_attendence_label = $event_attendence['choices'][ $event_attendence_value ];
-				?>
-				<p><b>Attendence mode</b>: <?php echo esc_html( $event_attendence_label ); ?></p>
-				<?php endif; ?>
-
   </div>
 		
 

@@ -1,0 +1,87 @@
+div.ctct-form-wrapper {
+  margin-block-start: 2rem;
+  margin-block-end: 2rem;
+}
+span.ctct-form-description {}
+form.ctct-form {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $mq-xs) {
+    flex-direction: row;
+    align-items: end;
+    gap: 1rem;
+  }
+  
+
+  abbr[title="required"] {
+    color: #d60000;
+    font-weight: bolder;
+  }
+}
+
+p.ctct-form-field {}
+span.ctct-label-top {
+  color: #333;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-block-end: 8px; 
+}
+
+
+
+input.ctct-label-top {}
+p.ctct-form-field-email {}
+p.ctct-form-field-required {}
+
+.ctct-email {  
+    background-color: #f2f2f2;
+    border: 1px solid #666;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.563rem 1rem;
+   
+    &::placeholder {
+      color: #999;
+    }
+
+    &:focus {
+      outline: 2px solid #00568c;
+    }
+}
+
+
+p.ctct-form-field-submit {}
+
+.ctct-submitted {
+  background-color: #00598c;
+  color: #fff;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.625rem 0.875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    background-color: #0079bf;
+  }
+
+  &:focus {
+    outline-offset: 1px;
+    outline: 1px solid #00568c;
+  }
+
+  &:active {
+    background-color: #003b5c;
+  }
+}
+
+
+.ctct-disclosure {
+  display: none;
+}

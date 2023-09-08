@@ -10,7 +10,7 @@
 
 ?>
 
-<article <?php post_class('ucla-ps-c-people'); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class('ucla-ps-c-people ucla-card ucla-card__person'); ?> id="post-<?php the_ID(); ?>">
 	
 		<div class="entry-content">
 
@@ -29,7 +29,7 @@
 			
 		 ?>
 		 	<figure>
-		 		<a href="<?php echo esc_url( get_permalink() ); ?>"><img class="u-photo avatar" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($alt); ?>" /></a>
+		 		<a href="<?php echo esc_url( get_permalink() ); ?>"><img class="ucla-card__image u-photo avatar" src="<?php echo esc_url($avatar); ?>" alt="<?php echo esc_attr($alt); ?>" /></a>
 
 		 <?php 
     	if( $caption ): ?>
@@ -41,18 +41,18 @@
 			<?php endif; ?>
 		<?php endif; ?>
 
-			<h1 class="p-name h2"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_field('p-given-name')." ".get_field('p-family-name') ); ?></a></h1>
+			<h1 class="ucla-card__title p-name"><a class="ucla-card__name-link" href="<?php echo esc_url( get_permalink() ); ?>"><?php echo esc_html( get_field('p-given-name')." ".get_field('p-family-name') ); ?></a></h1>
 		
 			<?php if( get_field('p-job-title') ): ?>
-				<p class="p-job-title"><?php echo esc_html( get_field( 'p-job-title' ) ); ?></p>
+				<p class="ucla-card__title p-job-title"><?php echo esc_html( get_field( 'p-job-title' ) ); ?></p>
 			<?php endif; ?>
 				
 			<?php if( get_field('p-org') ): ?>
-				<p class="p-org"><?php echo esc_html( get_field( 'p-org' ) ); ?></p>
+				<p class="ucla-card__person-department p-org"><?php echo esc_html( get_field( 'p-org' ) ); ?></p>
 			<?php endif; ?>
 			
-			<?php if( get_field('p-tel') ): ?><p class="tel"><?php echo esc_html( get_field( 'p-tel' ) ); ?></p><?php endif; ?>
-			<?php if( get_field('p-email') ): ?><p class="email"><a href="mailto:<?php echo esc_attr( get_field( 'p-email' ) ); ?>" class="email contact"><?php echo esc_html( get_field( 'p-email' ) ); ?></a></p><?php endif; ?>
+			<?php if( get_field('p-tel') ): ?><p class="ucla-card__person-contact tel"><?php echo esc_html( get_field( 'p-tel' ) ); ?></p><?php endif; ?>
+			<?php if( get_field('p-email') ): ?><p class="ucla-card__person-contact email"><a href="mailto:<?php echo esc_attr( get_field( 'p-email' ) ); ?>" class="email contact"><?php echo esc_html( get_field( 'p-email' ) ); ?></a></p><?php endif; ?>
 			
 	
 	

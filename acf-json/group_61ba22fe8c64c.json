@@ -6,6 +6,7 @@
             "key": "field_61ba23191e519",
             "label": "Video URL",
             "name": "ucla_ps_video_url",
+            "aria-label": "",
             "type": "oembed",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_61ba23421e51a",
             "label": "Summary",
             "name": "ucla_ps_video_summary",
+            "aria-label": "",
             "type": "text",
             "instructions": "One sentence summary of the video.",
             "required": 0,
@@ -36,6 +38,29 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_64469cfb2db10",
+            "label": "Academic Units",
+            "name": "ucla_ps_academic_units",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "multiple": 0,
+            "allow_null": 0
         }
     ],
     "location": [
@@ -56,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646418760
+    "modified": 1682542974
 }

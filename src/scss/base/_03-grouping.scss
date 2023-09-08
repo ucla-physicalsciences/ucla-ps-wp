@@ -1,0 +1,116 @@
+//  =====================================================
+//  HTML Living Standard
+//  Grouping content elements
+//  https://html.spec.whatwg.org/multipage/grouping-content.html
+//  p, hr, pre, blockquote, ol, ul, menu, li, dl, dt, dd,
+//  figure, figcaption, main, div
+//  =====================================================
+
+p {
+  margin-block-end: var(--spacing-5);
+  
+}
+
+// p + h2 {
+//   margin-block-start: var(--spacing-6);
+// }
+
+// p + p:not([class]) {
+// text-indent: 2ch;
+// }
+
+
+
+// p:last-child:only-child {
+//   margin-block-end: 0;
+// }
+
+/* Improve dark mode readability (Critical: All) */
+
+@media (prefers-color-scheme: dark) {
+  p {
+    word-spacing: 0.05em;
+  }
+}
+
+/* Rules (Critical: All) */
+
+hr {
+  border: 0;
+  border-bottom: var(--border-width-thin) solid var(--color-border);
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: var(--spacing-5) 0;
+  padding: 0;
+}
+
+hr.alt--large {
+  margin: var(--spacing-8) 0;
+}
+
+hr.alt--spacer {
+  margin: var(--spacing-3) 0;
+  border-bottom-width: 0;
+}
+
+/* Block quotes (Critical: All) */
+
+blockquote {
+  margin: var(--spacing-5) 0;
+  padding: 0;
+}
+
+blockquote p {
+  font-size: var(--font-size-large);
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-block-end: 0;
+}
+
+blockquote p + p.secondary {
+  font-size: var(--font-size-default);
+  margin-block-start: 0;
+}
+
+blockquote cite {
+  display: block;
+  padding-block-start: var(--spacing-5);
+  font-size: var(--font-size-small);
+}
+
+
+/* Lists (Critical: All) */
+
+ol,
+ul {
+  margin-block-start: var(--spacing-6);
+  margin-block-end: var(--spacing-6);
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+  font-size: var(--font-clamp-default);
+  list-style-type: none;
+}
+
+// ul {
+//   list-style-type: none;
+// }
+
+ol li {
+  margin-block-end: var(--spacing-3);
+  line-height: var(--line-height-text);
+}
+
+
+
+/* Figures (Critical: All) */
+
+// figure {
+//   margin: 0;
+//   padding: 0;
+// }
+
+figcaption {
+  font-size: var(--font-size-small);
+}

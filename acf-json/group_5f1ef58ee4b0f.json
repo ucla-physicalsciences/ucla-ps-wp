@@ -1,11 +1,12 @@
 {
     "key": "group_5f1ef58ee4b0f",
-    "title": "Schema: Event",
+    "title": "Event Schema",
     "fields": [
         {
             "key": "field_5f2a00e504529",
             "label": "Overview",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_5f2a00f50452a",
             "label": "Alternate Name",
             "name": "e-alt-name",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -41,6 +43,7 @@
             "key": "field_5f2a011e617aa",
             "label": "Summary",
             "name": "e-summary",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -58,9 +61,10 @@
         },
         {
             "key": "field_5f2a0136617ab",
-            "label": "Event Date and Start Time",
+            "label": "Event Date",
             "name": "e-start-date",
-            "type": "date_time_picker",
+            "aria-label": "",
+            "type": "date_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,14 +73,15 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y g:i a",
-            "return_format": "Y-m-d H:i:s",
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
             "first_day": 1
         },
         {
-            "key": "field_5f2a0164617ac",
-            "label": "Event End Time",
-            "name": "e-end-time",
+            "key": "field_64f23d0083097",
+            "label": "Event Start Time",
+            "name": "e-start-time",
+            "aria-label": "",
             "type": "time_picker",
             "instructions": "",
             "required": 0,
@@ -90,9 +95,58 @@
             "return_format": "g:i a"
         },
         {
+            "key": "field_5f2a0164617ac",
+            "label": "Event End Time",
+            "name": "e-end-time",
+            "aria-label": "",
+            "type": "time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64f23d0083097",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "g:i a",
+            "return_format": "g:i a"
+        },
+        {
+            "key": "field_64469c7e6c76b",
+            "label": "Academic Units",
+            "name": "e-academic-units",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_5f2a3cb8d1465",
             "label": "Venue",
             "name": "e-venue",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -112,6 +166,7 @@
             "key": "field_5f2a347bf573b",
             "label": "Location",
             "name": "e-location",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -128,25 +183,10 @@
             "new_lines": "br"
         },
         {
-            "key": "field_5f2a38549305a",
-            "label": "RSVP Link",
-            "name": "e-rsvp-link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_5f419e6bc2ab6",
             "label": "RSVP Text",
             "name": "e-rsvp-text",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -163,9 +203,27 @@
             "maxlength": ""
         },
         {
+            "key": "field_5f2a38549305a",
+            "label": "RSVP Link",
+            "name": "e-rsvp-link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_5f2a3dd72c0ca",
             "label": "Assets",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -182,6 +240,7 @@
             "key": "field_5f2a37c3a45ed",
             "label": "Files",
             "name": "e-files",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -196,11 +255,13 @@
             "max": 0,
             "layout": "table",
             "button_label": "Add File",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f2a381ea45ee",
                     "label": "File",
                     "name": "e-file",
+                    "aria-label": "",
                     "type": "file",
                     "instructions": "",
                     "required": 0,
@@ -214,7 +275,8 @@
                     "library": "all",
                     "min_size": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5f2a37c3a45ed"
                 }
             ]
         },
@@ -222,6 +284,7 @@
             "key": "field_5f2a36e68a0d0",
             "label": "Embed Media",
             "name": "e-embeds",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -235,12 +298,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f2a372d8a0d1",
                     "label": "Name",
                     "name": "e-embed-name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -254,12 +319,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f2a36e68a0d0"
                 },
                 {
                     "key": "field_5f2a37538a0d2",
                     "label": "Embed URL",
                     "name": "e-embed-url",
+                    "aria-label": "",
                     "type": "oembed",
                     "instructions": "Just copy and paste the share link.",
                     "required": 0,
@@ -270,7 +337,8 @@
                         "id": ""
                     },
                     "width": "",
-                    "height": ""
+                    "height": "",
+                    "parent_repeater": "field_5f2a36e68a0d0"
                 }
             ]
         },
@@ -278,6 +346,7 @@
             "key": "field_5f2a37ada45ec",
             "label": "Gallery",
             "name": "e-gallery",
+            "aria-label": "",
             "type": "gallery",
             "instructions": "",
             "required": 0,
@@ -305,6 +374,7 @@
             "key": "field_5f2a362f3d55a",
             "label": "Website",
             "name": "e-url",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -321,6 +391,7 @@
             "key": "field_5f2a3a60176d1",
             "label": "Contact",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -337,6 +408,7 @@
             "key": "field_5f2a389e9305c",
             "label": "Contact Name",
             "name": "e-contact-name",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -356,6 +428,7 @@
             "key": "field_5f2a38839305b",
             "label": "Contact Email",
             "name": "e-contact-email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -374,6 +447,7 @@
             "key": "field_5f2a38b29305d",
             "label": "Contact Telephone",
             "name": "e-contact-tel",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -393,6 +467,7 @@
             "key": "field_5f2a3b2e2d8b4",
             "label": "Acknowledgements",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -409,6 +484,7 @@
             "key": "field_5f2a34d4f573c",
             "label": "Organized by",
             "name": "e-organizer",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -428,6 +504,7 @@
             "key": "field_5f2a34dff573d",
             "label": "Funded by",
             "name": "e-funder",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -447,6 +524,7 @@
             "key": "field_5f2a3b802d8b5",
             "label": "Sponsors",
             "name": "e-sponsors",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -460,12 +538,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f2a3b9d2d8b6",
                     "label": "Name",
                     "name": "e-sponsor-name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -479,12 +559,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f2a3b802d8b5"
                 },
                 {
                     "key": "field_5f2a3bae2d8b7",
                     "label": "Description",
                     "name": "e-sponsor-description",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -498,12 +580,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f2a3b802d8b5"
                 },
                 {
                     "key": "field_5f2a3bbc2d8b8",
                     "label": "Logo",
                     "name": "e-sponsor-logo",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -522,12 +606,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5f2a3b802d8b5"
                 },
                 {
                     "key": "field_5f2a3bed2d8b9",
                     "label": "Website",
                     "name": "e-sponsor-website",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -538,7 +624,8 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5f2a3b802d8b5"
                 }
             ]
         },
@@ -546,6 +633,7 @@
             "key": "field_5f41a482727f2",
             "label": "Partners",
             "name": "e-partners",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -559,12 +647,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f41a482727f3",
                     "label": "Name",
                     "name": "e-partner-name",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -578,12 +668,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f41a482727f2"
                 },
                 {
                     "key": "field_5f41a482727f4",
                     "label": "Description",
                     "name": "e-parter-description",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -597,12 +689,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f41a482727f2"
                 },
                 {
                     "key": "field_5f41a482727f5",
                     "label": "Logo",
                     "name": "e-partner-logo",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -621,12 +715,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_5f41a482727f2"
                 },
                 {
                     "key": "field_5f41a482727f6",
                     "label": "Website",
                     "name": "e-partner-website",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -637,7 +733,8 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_5f41a482727f2"
                 }
             ]
         },
@@ -645,6 +742,7 @@
             "key": "field_5f2a3a8f176d2",
             "label": "Logistics",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -661,6 +759,7 @@
             "key": "field_5f2a3d422c0c9",
             "label": "Price",
             "name": "e-price",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -680,6 +779,7 @@
             "key": "field_5f2a3d2b2c0c8",
             "label": "Audience",
             "name": "e-audience",
+            "aria-label": "",
             "type": "text",
             "instructions": "Type of audience. ie open to the public, etc",
             "required": 0,
@@ -699,6 +799,7 @@
             "key": "field_5f2a336842c3f",
             "label": "Attendance Mode",
             "name": "e-attendance-mode",
+            "aria-label": "",
             "type": "radio",
             "instructions": "Type of Event",
             "required": 0,
@@ -724,6 +825,7 @@
             "key": "field_5f2a33f6d17c1",
             "label": "Status",
             "name": "e-status",
+            "aria-label": "",
             "type": "radio",
             "instructions": "",
             "required": 0,
@@ -750,6 +852,7 @@
             "key": "field_5f2a35e3d6de2",
             "label": "Super Event",
             "name": "e-super-event",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent.",
             "required": 0,
@@ -769,12 +872,14 @@
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         },
         {
             "key": "field_5f2a3572f5740",
             "label": "Sub Event",
             "name": "e-sub-event",
+            "aria-label": "",
             "type": "relationship",
             "instructions": "An event that is part of this event. For example, a conference event includes many presentations, each of which is a sub event of the conference.",
             "required": 0,
@@ -794,7 +899,8 @@
             "elements": "",
             "min": "",
             "max": "",
-            "return_format": "object"
+            "return_format": "object",
+            "bidirectional_target": []
         }
     ],
     "location": [
@@ -819,5 +925,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646418666
+    "modified": 1693597223
 }

@@ -2,10 +2,10 @@
   <div class="ucla campus">
     <div class="col span_12_of_12">
       <?php if (is_404()) { ?>
-        <div class="breadcrumb"><?php get_breadcrumb(); ?> / 404 Error</div>
+        <p class="breadcrumb"><?php get_breadcrumb(); ?> / 404 Error</p>
         <h1 class="entry-title"><?php esc_html_e('Page Not Found', 'ucla'); ?></h1>
       <?php } else { ?>
-        <div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+        <p class="breadcrumb"><?php get_breadcrumb(); ?></p>
         <h1 class="entry-title"><?php the_title(); ?></h1>
       <?php } ?>
      
